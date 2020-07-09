@@ -6,7 +6,6 @@ import 'package:YogaAsana/widgets/ProgressWidget.dart';
 import 'package:YogaAsana/Yoga/widgets/yoga_card.dart';
 import 'package:flutter/material.dart';
 
-
 class GridYogaItems extends StatefulWidget {
   @override
   _GridYogaItemsState createState() => _GridYogaItemsState();
@@ -43,19 +42,21 @@ class _GridYogaItemsState extends State<GridYogaItems> {
         builder:
             (BuildContext contaxt, AsyncSnapshot<List<YogaPost>> snapshot) {
           if (snapshot.hasData) {
-            return GridView.builder(
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  childAspectRatio: .95,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
-                ),
-                itemCount: snapshot.data.length,
-                itemBuilder: (contaxt, index) {
-                  return YogaCard(
-                    yogaPost: snapshot.data[index],
-                  );
-                });
+            return Scrollbar(
+              child: GridView.builder(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    childAspectRatio: .95,
+                    crossAxisSpacing: 20,
+                    mainAxisSpacing: 20,
+                  ),
+                  itemCount: snapshot.data.length,
+                  itemBuilder: (contaxt, index) {
+                    return YogaCard(
+                      yogaPost: snapshot.data[index],
+                    );
+                  }),
+            );
           } else {
             return circularProgress();
           }

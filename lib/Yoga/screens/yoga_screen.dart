@@ -33,7 +33,7 @@ class _YogaScreenState extends State<YogaScreen> {
           SafeArea(
             child: Padding(
               padding: const EdgeInsets.symmetric(
-                horizontal: 20,
+                horizontal: 15.0,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,6 +47,7 @@ class _YogaScreenState extends State<YogaScreen> {
                     height: 10,
                   ),
                   Expanded(child: GridYogaItems()),
+                  
                 ],
               ),
             ),

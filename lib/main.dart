@@ -6,6 +6,7 @@ import 'package:intro_slider/slide_object.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
+import 'Meditation/widgets/music_items.dart';
 import 'constant.dart';
 
 void main() {
@@ -63,91 +64,7 @@ class FirstScreenState extends State<FirstScreen>
   }
 }
 
-// class Home extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       appBar: new AppBar(
-//         title: new Text('Hello'),
-//       ),
-//       body: new Center(
-//         child: new Text('This is the second page'),
-//       ),
-//     );
-//   }
-// }
 
-// class IntroScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return new Scaffold(
-//       appBar: new AppBar(
-//         title: new Text('IntroScreen'),
-//       ),
-//       body: new Center(
-//         child: new Text('This is the IntroScreen'),
-//       ),
-//     );
-//   }
-// }
-
-// class FirstScreen extends StatefulWidget {
-//   @override
-//   _FirstScreenState createState() => _FirstScreenState();
-// }
-
-// class _FirstScreenState extends State<FirstScreen> {
-//   @override
-//   void initState() {
-//     super.initState();
-//     getSaveData();
-//   }
-
-//   Future<bool> getSaveData() async {
-//     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-//     bool isIntroScreenOpenedBefore =
-//         sharedPreferences.getBool("isIntroScreenOpened") ?? false;
-//     print(sharedPreferences.containsKey("isIntroScreenOpened")); // check your key either it is save or not?
-
-//     if (isIntroScreenOpenedBefore == true) {
-//       Navigator.push(context, MaterialPageRoute(builder: (context) {
-//         return IntroScreen();
-//       }));
-//     } else {
-//       Navigator.push(context, MaterialPageRoute(builder: (context) {
-//         return Splash();
-//       }));
-//     }
-//     return isIntroScreenOpenedBefore;
-//   }
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return FutureBuilder(
-//         future: getSaveData(),
-//         builder: (context, snapshot) {
-//           if (snapshot.connectionState == ConnectionState.waiting) {
-//             return circularProgress();
-//           } else {
-//             return MaterialApp(
-//                 title: 'YogaAsana',
-//                 theme: ThemeData(
-//                   scaffoldBackgroundColor: kBackgroundColor,
-//                   fontFamily: "Poppins",
-//                   textTheme: Theme.of(context)
-//                       .textTheme
-//                       .apply(displayColor: kTitleTextColor),
-//                 ),
-//                 debugShowCheckedModeBanner: false,
-//                 initialRoute: snapshot.data,
-//                 routes: {
-//                   IntroScreen.id: (context) => IntroScreen(),
-//                   Splash.id: (context) => Splash(),
-//                 });
-//           }
-//         });
-//   }
-// }
 
 class Splash extends StatefulWidget {
   @override

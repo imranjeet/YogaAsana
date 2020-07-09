@@ -26,7 +26,8 @@ dependencies:
   audio: ^0.0.5
   firebase_core: ^0.4.5
   firebase_analytics: ^5.0.2
-  # audioplayers: ^0.13.2
+  audioplayers: ^0.13.2
+  flutter_html: ^1.0.0
   # assets_audio_player: ^2.0.7+9
   # flutter_neumorphic: ^3.0.1
   cupertino_icons: ^0.1.3

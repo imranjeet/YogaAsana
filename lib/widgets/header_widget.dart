@@ -12,7 +12,7 @@ class HeaderWidget extends StatelessWidget {
     @required this.title,
     this.subtitle,
     this.details,
-    @required this.imgSrc,
+    this.imgSrc,
   }) : super(key: key);
 
   @override
