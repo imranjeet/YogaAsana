@@ -1,5 +1,8 @@
-import 'package:YogaAsana/widgets/item_card.dart';
+import 'package:YogaAsana/Yoga/screens/yoga_screen.dart';
+import 'package:YogaAsana/Home/widgets/item_card.dart';
 import 'package:flutter/material.dart';
+
+import '../../Meditation/screens/meditation_screen.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -31,6 +34,7 @@ class Home extends StatelessWidget {
               children: <Widget>[
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     Column(
                       children: <Widget>[
@@ -67,36 +71,33 @@ class Home extends StatelessWidget {
                 Expanded(
                   child: GridView.count(
                     crossAxisCount: 2,
-                    childAspectRatio: .85,
+                    childAspectRatio: .75,
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                     children: <Widget>[
                       ItemCard(
-                        title: "Diet Recommendation",
-                        imgSrc: "assets/images/2.png",
-                        press: () {},
-                      ),
-                      ItemCard(
-                        title: "Kegel Exercises",
-                        imgSrc: "assets/images/3.png",
-                        press: () {},
-                      ),
-                      ItemCard(
-                          title: "Meditation",
-                          imgSrc: "assets/images/4.png",
-                          press: () {}
-                          //   Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(builder: (context) {
-                          //       return DetailsScreen();
-                          //     }),
-                          //   );
-                          // },
-                          ),
-                      ItemCard(
                         title: "Yoga",
                         imgSrc: "assets/images/5.png",
-                        press: () {},
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return YogaScreen();
+                            }),
+                          );
+                        },
+                      ),
+                      ItemCard(
+                        title: "Meditation",
+                        imgSrc: "assets/images/4.png",
+                        press: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) {
+                              return MeditationScreen();
+                            }),
+                          );
+                        },
                       ),
                       ItemCard(
                         title: "Diet Recommendation",

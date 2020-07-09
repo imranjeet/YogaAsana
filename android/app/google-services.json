@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "418343938906",
+    "firebase_url": "https://yogaasana-d3ff6.firebaseio.com",
+    "project_id": "yogaasana-d3ff6",
+    "storage_bucket": "yogaasana-d3ff6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:418343938906:android:e9d920026be109600ae163",
+        "android_client_info": {
+          "package_name": "com.yogaasana.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "418343938906-a9ulh4fj636n8ofo58nup7a2pqukrcce.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDD-dX4AOtZBjYt1sllw9zwrakjOD66DCA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "418343938906-a9ulh4fj636n8ofo58nup7a2pqukrcce.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

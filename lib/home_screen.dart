@@ -1,9 +1,8 @@
-import '../constant.dart';
-import 'yoga_screen.dart';
+import 'Yoga/screens/yoga_screen.dart';
 import 'package:flutter/material.dart';
-import 'diet_screen.dart';
-import 'exercise_screen.dart';
-import 'home.dart';
+import 'screens/diet_screen.dart';
+import 'screens/exercise_screen.dart';
+import 'Home/screens/home.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -62,7 +61,7 @@ class _MainScreenState extends State<MainScreen> {
               icon: Icon(Icons.settings), title: Text('Settings')),
         ],
         type: BottomNavigationBarType.fixed,
-        selectedItemColor: kDeathColor,
+        selectedItemColor: Color(0xFFFF4848),
         unselectedItemColor: Colors.black45,
         unselectedIconTheme: IconThemeData(
           size: 30,
