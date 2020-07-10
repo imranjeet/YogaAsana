@@ -1,4 +1,4 @@
-import 'package:YogaAsana/home_screen.dart';
+import 'package:YogaAsana/main_screen.dart';
 import 'package:flutter/material.dart';
 
 class HeaderWidget extends StatelessWidget {
@@ -21,17 +21,17 @@ class HeaderWidget extends StatelessWidget {
     return Row(
       children: <Widget>[
         Column(crossAxisAlignment: CrossAxisAlignment.start, mainAxisAlignment: MainAxisAlignment.spaceBetween, children: <Widget>[
-          InkWell(
-            child: Icon(Icons.arrow_back_ios),
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) {
-                  return MainScreen();
-                }),
-              );
-            },
-          ),
+          // InkWell(
+          //   child: Icon(Icons.arrow_back_ios),
+          //   onTap: () {
+          //     Navigator.push(
+          //       context,
+          //       MaterialPageRoute(builder: (context) {
+          //         return MainScreen();
+          //       }),
+          //     );
+          //   },
+          // ),
           SizedBox(
             height: size.height * 0.02,
           ),

@@ -1,34 +1,120 @@
-import 'package:YogaAsana/home_screen.dart';
+import 'package:YogaAsana/main_screen.dart';
+import 'package:YogaAsana/util/user.dart';
 import 'package:after_layout/after_layout.dart';
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'Meditation/widgets/music_items.dart';
-import 'constant.dart';
+import 'Home/screens/login.dart';
+import 'Home/screens/register.dart';
 
-void main() {
-  runApp(MyApp());
+
+List<CameraDescription> cameras;
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  String email = prefs.getString('email');
+  String uid = prefs.getString('uid');
+  String displayName = prefs.getString('displayName');
+  String photoUrl = prefs.getString('photoUrl');
+
+  User user = User();
+  user.setUser({
+    'email': email,
+    'displayName': displayName,
+    'uid': uid,
+    'photoUrl': photoUrl,
+  });
+
+  try {
+    cameras = await availableCameras();
+  } on CameraException catch (e) {
+    print('Error: $e.code\nError Message: $e.message');
+  }
+
+  runApp(
+    email != null && uid != null
+        ? MyApp(
+            email: user.email,
+            uid: user.uid,
+            displayName: user.displayName,
+            photoUrl: user.photoUrl,
+            cameras: cameras,
+          )
+        : MyApp(
+            cameras: cameras,
+          ),
+  );
 }
 
 class MyApp extends StatelessWidget {
+  final String email;
+  final String uid;
+  final String displayName;
+  final String photoUrl;
+  final List<CameraDescription> cameras;
+
+  const MyApp({
+    this.email,
+    this.uid,
+    this.displayName,
+    this.photoUrl,
+    this.cameras,
+  });
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'YogaAsana',
       debugShowCheckedModeBanner: false,
+      title: 'YogaAsana',
       theme: ThemeData(
-        scaffoldBackgroundColor: kBackgroundColor,
-        fontFamily: "Poppins",
-        textTheme:
-            Theme.of(context).textTheme.apply(displayColor: kTitleTextColor),
+        primarySwatch: Colors.blueGrey,
       ),
-      home: FirstScreen(),
+      initialRoute: (email != null && uid != null) ? '/' : '/login',
+      routes: <String, WidgetBuilder>{
+        // '/': (BuildContext context) => FirstScreen(),
+        '/': (BuildContext context) => MainScreen(
+              email: email,
+              uid: uid,
+              displayName: displayName,
+              photoUrl: photoUrl,
+              cameras: cameras,
+            ),
+        '/login': (BuildContext context) => Login(
+              cameras: cameras,
+            ),
+        'register': (BuildContext context) => Register(),
+      },
     );
   }
 }
+
+
+// void main() {
+//   runApp(MyApp());
+// }
+
+// class MyApp extends StatelessWidget {
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       title: 'YogaAsana',
+//       debugShowCheckedModeBanner: false,
+//       theme: ThemeData(
+//         scaffoldBackgroundColor: kBackgroundColor,
+//         fontFamily: "Poppins",
+//         textTheme:
+//             Theme.of(context).textTheme.apply(displayColor: kTitleTextColor),
+//       ),
+//       home: FirstScreen(),
+//     );
+//   }
+// }
 
 class FirstScreen extends StatefulWidget {
   @override

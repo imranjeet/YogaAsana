@@ -9,90 +9,88 @@ class MeditationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          Container(
-            height: size.height * .40,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  colors: [
-                    Colors.redAccent,
-                    Colors.yellowAccent,
-                  ]),
-              image: DecorationImage(
-                alignment: Alignment.centerLeft,
-                image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
+    return Stack(
+      children: <Widget>[
+        Container(
+          height: size.height * .40,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.redAccent,
+                  Colors.yellowAccent,
+                ]),
+            image: DecorationImage(
+              alignment: Alignment.centerLeft,
+              image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
+            ),
+          ),
+        ),
+        SafeArea(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              SizedBox(
+                height: 10,
               ),
-            ),
-          ),
-          SafeArea(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                SizedBox(
-                  height: 10,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: HeaderWidget(
+                  title: "Meditation",
+                  subtitle: "3-10 MIN Course",
+                  details:
+                      "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                  imgSrc: "assets/images/1.png",
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  child: HeaderWidget(
-                    title: "Meditation",
-                    subtitle: "3-10 MIN Course",
-                    details:
-                        "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                    imgSrc: "assets/images/1.png",
+              ),
+              SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                child: MusicItem(),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * .47,
+                child: SingleChildScrollView(
+                  child: Column(
+                    children: <Widget>[
+                      SizedBox(height: 20.0),
+                      Text(
+                        "Meditation",
+                        style: kHeadingTextStyle,
+                      ),
+                      MeditationItem(
+                        title: "Basic 1",
+                        subtitle: "Start your deepen you practice",
+                        details:
+                            "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                      ),
+                      MeditationItem(
+                        title: "Basic 2",
+                        subtitle: "Start your deepen you practice",
+                        details:
+                            "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                      ),
+                      MeditationItem(
+                        title: "Basic 3",
+                        subtitle: "Start your deepen you practice",
+                        details:
+                            "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                      ),
+                      MeditationItem(
+                        title: "Basic 4",
+                        subtitle: "Start your deepen you practice",
+                        details:
+                            "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(height: 20),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  child: MusicItem(),
-                ),
-                Container(
-                  height: MediaQuery.of(context).size.height * .55,
-                  child: SingleChildScrollView(
-                    child: Column(
-                      children: <Widget>[
-                        SizedBox(height: 20.0),
-                        Text(
-                          "Meditation",
-                          style: kHeadingTextStyle,
-                        ),
-                        MeditationItem(
-                          title: "Basic 1",
-                          subtitle: "Start your deepen you practice",
-                          details:
-                              "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        ),
-                        MeditationItem(
-                          title: "Basic 2",
-                          subtitle: "Start your deepen you practice",
-                          details:
-                              "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        ),
-                        MeditationItem(
-                          title: "Basic 3",
-                          subtitle: "Start your deepen you practice",
-                          details:
-                              "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        ),
-                        MeditationItem(
-                          title: "Basic 4",
-                          subtitle: "Start your deepen you practice",
-                          details:
-                              "Live happier and healthier by learning the fundamentals of meditation and mindfulness",
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
