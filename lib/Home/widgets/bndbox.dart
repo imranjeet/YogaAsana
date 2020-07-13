@@ -102,9 +102,9 @@ class BndBox extends StatelessWidget {
             child: Text(
               _label.toString(),
               style: TextStyle(
-                fontSize: 50,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
-                color: Colors.green,
+                color: Colors.black,
               ),
             ),
           ),
@@ -138,7 +138,7 @@ class BndBox extends StatelessWidget {
 
       _percent = result;
       _label =
-          result < 0.5 ? "wrong" : (result * 100).toStringAsFixed(0) + "%";
+          result < 0.5 ? "Wrong Pose" : (result * 100).toStringAsFixed(0) + "%";
       updateCounter(_percent);
 
       print("Final Label: " + result.toString());

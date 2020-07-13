@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:audio/audio.dart';
 
-import '../../constant.dart';
+import '../../util/constant.dart';
 
 class MusicItem extends StatelessWidget {
   @override

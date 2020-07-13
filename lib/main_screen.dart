@@ -1,13 +1,10 @@
 import 'package:YogaAsana/util/user.dart';
 import 'package:camera/camera.dart';
 
-import 'Home/screens/profile.dart';
+import 'Profile/screens/profile.dart';
 import 'Meditation/screens/meditation_screen.dart';
-import 'Yoga/screens/yoga_screen.dart';
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'screens/diet_screen.dart';
-import 'screens/exercise_screen.dart';
 import 'Home/screens/home.dart';
 
 class MainScreen extends StatefulWidget {
@@ -29,6 +26,7 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  bool activeMeditationIcon = false;
   PageController _pageController;
   int _currentPage = 0;
 
@@ -39,6 +37,11 @@ class _MainScreenState extends State<MainScreen> {
     _pageController.addListener(() {
       setState(() {
         _currentPage = _pageController.page.round();
+        if (_currentPage == 1) {
+          activeMeditationIcon = true;
+        } else {
+          activeMeditationIcon = false;
+        }
       });
     });
   }
@@ -46,6 +49,7 @@ class _MainScreenState extends State<MainScreen> {
   void _changePage(int page) {
     setState(() {
       this._currentPage = page;
+      
     });
 
     _pageController.animateToPage(
@@ -87,7 +91,12 @@ class _MainScreenState extends State<MainScreen> {
                 'Home',
               )),
           BottomNavigationBarItem(
-              icon: Icon(Icons.fastfood), title: Text('Meditation')),
+              icon: Image.asset(
+                'assets/icons/2.png',
+                height: 30,
+                color: activeMeditationIcon ? Colors.pink : Colors.black54,
+              ),
+              title: Text('Meditation')),
           BottomNavigationBarItem(
               icon: Icon(Icons.account_circle), title: Text('Settings')),
         ],

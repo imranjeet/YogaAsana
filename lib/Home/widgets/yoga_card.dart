@@ -1,22 +1,22 @@
-import 'package:YogaAsana/main.dart';
 import 'package:YogaAsana/models/yoga_post.dart';
 import 'package:YogaAsana/Home/screens/yoga_detail.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../util/constant.dart';
 
 class YogaCard extends StatelessWidget {
-  final List<CameraDescription> cameras;
-  final String customModel;
-  final String asana;
   final YogaPost yogaPost;
+  final List<CameraDescription> cameras;
+  final String title;
+  final String model;
+  final String customModel;
   
   const YogaCard({
     Key key,
     this.yogaPost,
-    this.asana, this.customModel, this.cameras,
+   this.customModel, this.cameras, this.title, this.model,
   }) : super(key: key);
 
   @override
@@ -46,10 +46,10 @@ class YogaCard extends StatelessWidget {
                   MaterialPageRoute(
                       builder: (context) => YogaDetail(
                             cameras: cameras,
-                            // title: customModelName,
+                            title: title,
                             model:
-                                customModel,
-                            // customModel: customModelName,
+                                model,
+                            customModel: customModel,
                             yogaPost: yogaPost,
                           )));
             },

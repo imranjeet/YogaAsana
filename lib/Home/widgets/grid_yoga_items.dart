@@ -1,20 +1,17 @@
 import 'dart:convert';
 
-import 'package:YogaAsana/main.dart';
 import 'package:YogaAsana/models/yoga_post.dart';
 import 'package:YogaAsana/services/yoga_post_service.dart';
 import 'package:YogaAsana/util/pose_data.dart';
 import 'package:YogaAsana/widgets/ProgressWidget.dart';
 import 'package:YogaAsana/Home/widgets/yoga_card.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class GridYogaItems extends StatefulWidget {
-  final List<CameraDescription> cameras;
-  final String model;
-  final List<String> asanas;
-  const GridYogaItems({Key key, this.model, this.asanas, this.cameras})
-      : super(key: key);
+  // final List<CameraDescription> cameras;
+  // final String model;
+
+  // const GridYogaItems({Key key, this.cameras, this.model}) : super(key: key);
   @override
   _GridYogaItemsState createState() => _GridYogaItemsState();
 }
@@ -24,17 +21,19 @@ class _GridYogaItemsState extends State<GridYogaItems> {
 
   Future<List<YogaPost>> _getAllYogaPost() async {
     var result = await _yogaPostService.getAllYogaPost();
+
     List<YogaPost> _list = List<YogaPost>();
     if (result != null) {
       var blogPosts = json.decode(result.body);
+      print(blogPosts);
       blogPosts.forEach((blogPost) {
         var model = YogaPost();
         model.title = blogPost['title'];
         model.details = blogPost['details'];
         model.featuredImageUrl = blogPost['featured_image_url'];
         model.gifUrl = blogPost['gif_image_url'];
-        model.category = blogPost['category']['name'];
-        model.createdAt = blogPost['created_at'];
+        // model.category = blogPost['category'];
+        // model.createdAt = blogPost['created_at'];
         setState(() {
           _list.add(model);
         });
@@ -58,21 +57,44 @@ class _GridYogaItemsState extends State<GridYogaItems> {
                     crossAxisSpacing: 20,
                     mainAxisSpacing: 20,
                   ),
-                  itemCount: snapshot.data.length,
-                  itemBuilder: (BuildContext contaxt, int index,) {
+                  itemCount: 13,
+                  itemBuilder: (
+                    BuildContext contaxt,
+                    int index,
+                  ) {
                     return YogaCard(
-                      cameras: cameras,
-                      customModel:
-                          "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
-                      
-                      asana: asanas[index],
                       yogaPost: snapshot.data[index],
+                      // cameras: cameras,
+                      title: asanas[index],
+                      model:
+                          "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
+                      customModel: asanas[index],
                     );
                   }),
             );
-          } else {
+          }
+          // else if (snapshot.hasError) {
+          //   return Text("${snapshot.error}");
+          // }
+          else {
             return circularProgress();
           }
         });
   }
+
+  // void _onSelect(
+  //     BuildContext context, String customModelName, YogaPost yogaPost) async {
+  //   Navigator.push(
+  //     context,
+  //     MaterialPageRoute(
+  //       builder: (context) => YogaDetail(
+  //         // cameras: cameras,
+  //         yogaPost: yogaPost,
+  //         title: customModelName,
+  //         model: "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
+  //         customModel: customModelName,
+  //       ),
+  //     ),
+  //   );
+  // }
 }

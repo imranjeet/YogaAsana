@@ -1,4 +1,3 @@
-import 'package:YogaAsana/Meditation/screens/meditation_screen.dart';
 import 'package:flutter/material.dart';
 
 class MeditationDetailScreen extends StatelessWidget {
@@ -49,12 +48,7 @@ class MeditationDetailScreen extends StatelessWidget {
                         InkWell(
                           child: Icon(Icons.arrow_back_ios),
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) {
-                                return MeditationScreen();
-                              }),
-                            );
+                            Navigator.pop(context);
                           },
                         ),
                         SizedBox(

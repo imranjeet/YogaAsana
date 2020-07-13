@@ -8,9 +8,7 @@ import 'package:intro_slider/slide_object.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
-import 'Home/screens/login.dart';
-import 'Home/screens/register.dart';
-
+import 'Auth/login.dart';
 
 List<CameraDescription> cameras;
 
@@ -88,12 +86,17 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext context) => Login(
               cameras: cameras,
             ),
-        'register': (BuildContext context) => Register(),
+        // 'register': (BuildContext context) => Register(),
+        // 'profile': (BuildContext context) => Profile(
+        //       email: email,
+        //       uid: uid,
+        //       displayName: displayName,
+        //       photoUrl: photoUrl,
+        //     ),
       },
     );
   }
 }
-
 
 // void main() {
 //   runApp(MyApp());
@@ -150,8 +153,6 @@ class FirstScreenState extends State<FirstScreen>
   }
 }
 
-
-
 class Splash extends StatefulWidget {
   @override
   _SplashState createState() => _SplashState();
@@ -162,7 +163,7 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return new SplashScreen(
       seconds: 3,
-      navigateAfterSeconds: new MainScreen(),
+      navigateAfterSeconds: Navigator.popAndPushNamed(context, '/home'),
       title: new Text(
         'Welcome In YogaAsana App',
         style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),

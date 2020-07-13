@@ -1,6 +1,5 @@
-import 'package:YogaAsana/constant.dart';
+import 'package:YogaAsana/util/constant.dart';
 import 'package:YogaAsana/models/yoga_post.dart';
-import 'package:YogaAsana/Yoga/screens/yoga_screen.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +9,7 @@ import 'inference.dart';
 
 class YogaDetail extends StatelessWidget {
   final List<CameraDescription> cameras;
-  // final String title;
+  final String title;
   final String model;
   final String customModel;
   final YogaPost yogaPost;
@@ -20,7 +19,7 @@ class YogaDetail extends StatelessWidget {
     this.yogaPost,
     this.cameras,
     this.model,
-    // this.title,
+    this.title,
     this.customModel,
   }) : super(key: key);
 
@@ -52,90 +51,82 @@ class YogaDetail extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10),
                 child: InkWell(
                   child: Icon(Icons.arrow_back_ios),
                   onTap: () {
-                    // Navigator.push(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) {
-                    //     return YogaScreen();
-                    //   }),
-                    // );
+                    Navigator.pop(context);
                   },
                 ),
               ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    child: Container(
-                      alignment: Alignment.topCenter,
-                      height: size.height * .25,
-                      child: CachedNetworkImage(
-                        height: size.height * .25,
-                        width: size.width * .95,
-                        imageUrl: yogaPost.gifUrl,
-                        progressIndicatorBuilder:
-                            (context, url, downloadProgress) =>
-                                CircularProgressIndicator(
-                                    valueColor:
-                                        AlwaysStoppedAnimation(Colors.black),
-                                    value: downloadProgress.progress),
-                        errorWidget: (context, url, error) => Container(
-                            child: Column(
-                          children: <Widget>[
-                            CachedNetworkImage(
-                              imageUrl: yogaPost.featuredImageUrl,
-                              height: size.height * .25,
-                              errorWidget: (context, url, error) => Container(
-                                  child: Column(
-                                children: <Widget>[
-                                  Icon(
-                                    Icons.error,
-                                    size: 50,
-                                  ),
-                                  Text(
-                                    "check your internet connection!",
-                                  ),
-                                ],
-                              )),
-                            )
-                          ],
-                        )),
-                      ),
-                    ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Container(
+                  alignment: Alignment.topCenter,
+                  height: size.height * .26,
+                  width: size.width * .95,
+                  child: CachedNetworkImage(
+                    height: size.height * .25,
+                    width: size.width * .95,
+                    imageUrl: yogaPost.gifUrl,
+                    progressIndicatorBuilder: (context, url,
+                            downloadProgress) =>
+                        CircularProgressIndicator(
+                            valueColor: AlwaysStoppedAnimation(Colors.black),
+                            value: downloadProgress.progress),
+                    errorWidget: (context, url, error) => Container(
+                        child: Column(
+                      children: <Widget>[
+                        CachedNetworkImage(
+                          imageUrl: yogaPost.featuredImageUrl,
+                          height: size.height * .25,
+                          width: size.width * .95,
+                          errorWidget: (context, url, error) => Container(
+                              child: Column(
+                            children: <Widget>[
+                              Icon(
+                                Icons.error,
+                                size: 50,
+                              ),
+                              Text(
+                                "check your internet connection!",
+                              ),
+                            ],
+                          )),
+                        )
+                      ],
+                    )),
                   ),
-                ],
+                ),
               ),
               Center(
                 child: Container(
-                  height: size.height * .53,
+                  height: size.height * .50,
                   width: size.width * .96,
                   child: Card(
                     shape: RoundedRectangleBorder(
                       side: BorderSide(color: Colors.white70, width: 1),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: <Widget>[
-                          Padding(
-                            padding: const EdgeInsets.all(15.0),
-                            child: Text(
-                              yogaPost.title,
-                              style: kHeadingTextStyle,
+                    child: Scrollbar(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text(
+                                yogaPost.title,
+                                style: kHeadingTextStyle,
+                              ),
                             ),
-                          ),
-                          Padding(
-                            padding:
-                                const EdgeInsets.only(left: 10.0, right: 10),
-                            child: Html(data: yogaPost.details),
-                          ),
-                        ],
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(left: 10.0, right: 10),
+                              child: Html(data: yogaPost.details),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
@@ -161,8 +152,10 @@ class YogaDetail extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => InferencePage(
-                              cameras: cameras,
-                              model: customModel,
+                              // cameras: cameras,
+                              title: title,
+                              model: model,
+                              customModel: customModel,
                             ),
                           ),
                         );

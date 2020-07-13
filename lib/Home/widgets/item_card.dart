@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../util/constant.dart';
 
 class ItemCard extends StatelessWidget {
   final String imgSrc;

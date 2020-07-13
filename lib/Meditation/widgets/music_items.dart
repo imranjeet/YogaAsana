@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:path_provider/path_provider.dart';
 
-import '../../constant.dart';
+import '../../util/constant.dart';
 
 class AudioItem extends StatefulWidget {
   @override
@@ -98,7 +98,7 @@ class AudioProvider {
   Future<String> load() async {
     final bytes = await _loadFileBytes(url,
         onError: (Exception exception) =>
-            print('audio_provider.load => exception ${exception}'));
+            print('audio_provider.load => exception $exception'));
 
     final dir = await getApplicationDocumentsDirectory();
     final file = new File('${dir.path}/audio.mp3');

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'constant.dart';
+import '../util/constant.dart';
 
 class NoInternetScreen extends StatelessWidget {
   @override

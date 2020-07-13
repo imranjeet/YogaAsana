@@ -3,7 +3,7 @@ import 'package:YogaAsana/widgets/header_widget.dart';
 import 'package:YogaAsana/Meditation/widgets/meditation_track.dart';
 import 'package:flutter/material.dart';
 
-import '../../constant.dart';
+import '../../util/constant.dart';
 
 class MeditationScreen extends StatelessWidget {
   @override

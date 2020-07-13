@@ -1,17 +1,17 @@
 import 'dart:math';
+import 'package:YogaAsana/Home/widgets/bndbox.dart';
+import 'package:YogaAsana/Home/widgets/camera.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:tflite/tflite.dart';
-import '../widgets/bndbox.dart';
-import '../widgets/camera.dart';
 
 class InferencePage extends StatefulWidget {
   final List<CameraDescription> cameras;
-  // final String title;
+  final String title;
   final String model;
   final String customModel;
 
-  const InferencePage({this.cameras, this.model, this.customModel});
+  const InferencePage({this.cameras, this.title, this.model, this.customModel});
 
   @override
   _InferencePageState createState() => _InferencePageState();
@@ -34,9 +34,9 @@ class _InferencePageState extends State<InferencePage> {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.red,
         centerTitle: true,
-        title: Text("widget.title"),
+        title: Text(widget.title),
       ),
       body: Stack(
         children: <Widget>[

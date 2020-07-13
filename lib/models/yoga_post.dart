@@ -4,6 +4,6 @@ class YogaPost {
   String details;
   String featuredImageUrl;
   String gifUrl;
-  String category;
-  String createdAt;
+  // String category;
+  // String createdAt;
 }
