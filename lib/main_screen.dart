@@ -1,6 +1,10 @@
 import 'package:YogaAsana/util/user.dart';
 import 'package:camera/camera.dart';
+import 'package:provider/provider.dart';
 
+import 'Class/screens/classrooms_screen.dart';
+import 'Class/stores/asanas_store.dart';
+import 'Class/stores/classrooms_store.dart';
 import 'Profile/screens/profile.dart';
 import 'Meditation/screens/meditation_screen.dart';
 import 'package:flutter/material.dart';
@@ -26,6 +30,29 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+
+  bool _isCleaning = false;
+
+  void _clearAndRefresh(BuildContext context) async {
+    setState(() => _isCleaning = true);
+
+    try {
+      final asanasStore = Provider.of<AsanasStore>(context, listen: false);
+      final classroomsStore = Provider.of<ClassroomsStore>(context, listen: false);
+
+      await asanasStore.refreshData();
+      await classroomsStore.refreshData();
+
+      // _showNotification(context);
+    } catch (_) {
+      // _showNotification(context, isError: true);
+    } finally {
+      setState(() => _isCleaning = false);
+    }
+  }
+
+
+
   bool activeMeditationIcon = false;
   PageController _pageController;
   int _currentPage = 0;
@@ -37,7 +64,7 @@ class _MainScreenState extends State<MainScreen> {
     _pageController.addListener(() {
       setState(() {
         _currentPage = _pageController.page.round();
-        if (_currentPage == 1) {
+        if (_currentPage == 2) {
           activeMeditationIcon = true;
         } else {
           activeMeditationIcon = false;
@@ -49,7 +76,6 @@ class _MainScreenState extends State<MainScreen> {
   void _changePage(int page) {
     setState(() {
       this._currentPage = page;
-      
     });
 
     _pageController.animateToPage(
@@ -70,8 +96,9 @@ class _MainScreenState extends State<MainScreen> {
             uid: user.uid,
             displayName: user.displayName,
             photoUrl: user.photoUrl,
-            cameras: cameras,
+            // cameras: cameras,
           ),
+          ClassroomsScreen(),
           // YogaScreen(),
           MeditationScreen(),
           Profile(
@@ -89,6 +116,11 @@ class _MainScreenState extends State<MainScreen> {
               icon: Icon(Icons.home),
               title: Text(
                 'Home',
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.class_),
+              title: Text(
+                'Classes',
               )),
           BottomNavigationBarItem(
               icon: Image.asset(

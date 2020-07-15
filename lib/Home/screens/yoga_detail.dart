@@ -1,3 +1,4 @@
+import 'package:YogaAsana/Timer/timer.dart';
 import 'package:YogaAsana/util/constant.dart';
 import 'package:YogaAsana/models/yoga_post.dart';
 import 'package:cached_network_image/cached_network_image.dart';
@@ -151,12 +152,13 @@ class YogaDetail extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => InferencePage(
-                              // cameras: cameras,
-                              title: title,
-                              model: model,
-                              customModel: customModel,
-                            ),
+                            builder: (context) => PracticeTimer(),
+                            // InferencePage(
+                            //   cameras: cameras,
+                            //   title: title,
+                            //   model: model,
+                            //   customModel: customModel,
+                            // ),
                           ),
                         );
                       }),

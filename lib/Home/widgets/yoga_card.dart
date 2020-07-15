@@ -76,17 +76,13 @@ class YogaCard extends StatelessWidget {
                     height: 80,
                     fit: BoxFit.cover,
                   ),
-
-                  // CachedNetworkImage(imageUrl: img),
-                  // Image.network(img),
-                  // Image.asset(imgSrc, height: 80,),
                   Spacer(),
                   Text(
                     yogaPost.title,
                     overflow: TextOverflow.ellipsis,
                     textAlign: TextAlign.center,
                     style: kSubTextStyle,
-                  )
+                  ),
                 ],
               ),
             ),

@@ -222,7 +222,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                                   context,
                                   MaterialPageRoute(
                                     builder: (context) => Login(
-                                      cameras: cameras,
+                                      // cameras: cameras,
                                     ),
                                   ),
                                 );

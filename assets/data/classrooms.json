@@ -1,0 +1,45 @@
+[
+  {
+    "title": "Beginner",
+    "description": "Этот класс содержит всего одну асану, позу \"лотуса\" для практики медитации в неподвижном состоянии",
+    "coverImage": null,
+    "timeBetweenAsanas": 0,
+    "isPredefined": true,
+    "asanasUniqueNames": [
+      "lotus"
+    ],
+    "classroomRoutines": [
+      {
+        "asanaUniqueName": "lotus",
+        "asanaDuration": 260
+      }
+    ]
+  },
+  {
+    "title": "Intermediate",
+    "description": "Рекомендуем выполнять утром после пробуждения",
+    "coverImage": null,
+    "timeBetweenAsanas": 10,
+    "isPredefined": true,
+    "asanasUniqueNames": [
+      "plank",
+      "warrior_one_right",
+      "warrior_one_left"
+    ],
+    "classroomRoutines": [
+      {
+        "asanaUniqueName": "cobra",
+        "asanaDuration": 30
+      },
+      {
+        "asanaUniqueName": "butterfly",
+        "asanaDuration": 45
+      },
+      {
+        "asanaUniqueName": "spin_half_lotus",
+        "asanaDuration": 120
+      }
+    ]
+  }
+  
+]

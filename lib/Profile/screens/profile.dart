@@ -1,10 +1,14 @@
 import 'dart:io';
 import 'package:YogaAsana/Auth/login.dart';
+import 'package:YogaAsana/Class/stores/asanas_store.dart';
+import 'package:YogaAsana/Class/stores/classrooms_store.dart';
+import 'package:YogaAsana/Class/utils/local_notification.dart';
 import 'package:YogaAsana/Profile/screens/profile_edit.dart';
 import 'package:YogaAsana/main.dart';
 import 'package:YogaAsana/util/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:provider/provider.dart';
 import '../../util/constant.dart';
 import '../../util/auth.dart';
 
@@ -27,6 +31,8 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   // bool _progressBarActive = false;
+  bool _isCleaning = false;
+
   bool _editMode = false;
   TextEditingController _displayNameController;
   String _titleText;
@@ -46,6 +52,62 @@ class _ProfileState extends State<Profile> {
     _photoUrl = widget.photoUrl;
 
     super.initState();
+  }
+
+  void _clearAndRefresh(BuildContext context) async {
+    setState(() => _isCleaning = true);
+
+    try {
+      final asanasStore = Provider.of<AsanasStore>(context, listen: false);
+      final classroomsStore =
+          Provider.of<ClassroomsStore>(context, listen: false);
+
+      await asanasStore.refreshData();
+      await classroomsStore.refreshData();
+
+      _showNotification(context);
+    } catch (_) {
+      _showNotification(context, isError: true);
+    } finally {
+      setState(() => _isCleaning = false);
+    }
+  }
+
+  void _showNotification(BuildContext context, {bool isError = false}) {
+    if (isError == false) {
+      LocalNotification.success(context,
+          message: 'Data was flushed successful');
+    } else {
+      LocalNotification.error(context);
+    }
+  }
+
+  void _onClearButtonTap(BuildContext context) {
+    // TODO: Pick up to separate widget with platform selecting logic
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (_) {
+        return AlertDialog(
+          content: Text('Are you sure, you want to delete all users data?'),
+          actions: [
+            FlatButton(
+                child: Text('Cancel'),
+                textColor: Colors.black,
+                onPressed: () {
+                  Navigator.of(context).pop();
+                }),
+            FlatButton(
+                child: Text('Delete'),
+                textColor: Colors.red[400],
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  _clearAndRefresh(context);
+                }),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -87,8 +149,8 @@ class _ProfileState extends State<Profile> {
                       context,
                       MaterialPageRoute(
                         builder: (context) => Login(
-                          cameras: cameras,
-                        ),
+                            // cameras: cameras,
+                            ),
                       ),
                     );
                   },
@@ -247,13 +309,13 @@ class _ProfileState extends State<Profile> {
                                 color: Colors.black,
                                 size: 30,
                               ),
-                              title: Text("About"),
+                              title: Text("Clear cache data"),
                               trailing: Icon(
                                 Icons.arrow_forward_ios,
                               ),
-                              onTap: () {
-                                _showAboutDialog();
-                              },
+                              onTap: _isCleaning
+                                  ? null
+                                  : () => _onClearButtonTap(context),
                             ),
                           ),
 

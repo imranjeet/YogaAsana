@@ -5,16 +5,26 @@ import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
+import 'package:package_info/package_info.dart';
+import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:splashscreen/splashscreen.dart';
 
 import 'Auth/login.dart';
+import 'Class/repository/classroom_repository.dart';
+import 'Class/stores/asanas_store.dart';
+import 'Class/stores/classrooms_store.dart';
+import 'Class/utils/log.dart';
 
-List<CameraDescription> cameras;
+// List<CameraDescription> cameras = [];
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  
+
+  PackageInfo packageInfo = await PackageInfo.fromPlatform();
   SharedPreferences prefs = await SharedPreferences.getInstance();
+  Log.init();
 
   String email = prefs.getString('email');
   String uid = prefs.getString('uid');
@@ -29,11 +39,11 @@ Future<void> main() async {
     'photoUrl': photoUrl,
   });
 
-  try {
-    cameras = await availableCameras();
-  } on CameraException catch (e) {
-    print('Error: $e.code\nError Message: $e.message');
-  }
+  // try {
+  //   cameras = await availableCameras();
+  // } on CameraException catch (e) {
+  //   print('Error: $e.code\nError Message: $e.message');
+  // }
 
   runApp(
     email != null && uid != null
@@ -42,13 +52,19 @@ Future<void> main() async {
             uid: user.uid,
             displayName: user.displayName,
             photoUrl: user.photoUrl,
-            cameras: cameras,
+            sharedPreferences: prefs,
+            appVersion: packageInfo.version,
+            // cameras: cameras,
           )
         : MyApp(
-            cameras: cameras,
+          sharedPreferences: prefs,
+          appVersion: packageInfo.version,
+            // cameras: cameras,
           ),
   );
 }
+
+const kClassroomKeyValueRepositoryKeyName = 'classrooms';
 
 class MyApp extends StatelessWidget {
   final String email;
@@ -56,18 +72,37 @@ class MyApp extends StatelessWidget {
   final String displayName;
   final String photoUrl;
   final List<CameraDescription> cameras;
+  final SharedPreferences sharedPreferences;
+  final String appVersion;
 
   const MyApp({
     this.email,
     this.uid,
     this.displayName,
     this.photoUrl,
-    this.cameras,
+    this.cameras, this.sharedPreferences, this.appVersion,
   });
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(
+      providers: [
+        Provider<AsanasStore>(
+          create: (_) => AsanasStore()..init(),
+          lazy: false,
+        ),
+        Provider<ClassroomsStore>(
+          create: (_) {
+            final repository =
+                ClassroomKeyValueRepository(kClassroomKeyValueRepositoryKeyName, sharedPreferences);
+
+            return ClassroomsStore(repository)..init();
+          },
+          dispose: (_, store) => store.dispose(),
+          lazy: false,
+        )
+      ],
+    child: MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'YogaAsana',
       theme: ThemeData(
@@ -94,6 +129,7 @@ class MyApp extends StatelessWidget {
         //       photoUrl: photoUrl,
         //     ),
       },
+    ),
     );
   }
 }
