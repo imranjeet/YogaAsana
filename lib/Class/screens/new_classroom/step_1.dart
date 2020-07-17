@@ -32,26 +32,27 @@ class NewClassroomStep1Screen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return DefaultTabController(
       length: TABS_COUNT,
       child: Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBar(
           titleSpacing: 0,
-          centerTitle: false,
+          centerTitle: true,
           backgroundColor: Colors.white,
           elevation: 0.0,
           automaticallyImplyLeading: false,
           brightness: Brightness.light,
           leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
+            icon: const Icon(Icons.arrow_back_ios),
             color: Colors.grey,
             onPressed: onCancel,
           ),
           actions: [
             Observer(
               builder: (_) => IconButton(
-                icon: const Icon(Icons.arrow_forward),
+                icon: const Icon(Icons.arrow_forward_ios),
                 color: Theme.of(context).accentColor,
                 disabledColor: Theme.of(context).accentColor.withOpacity(0.5),
                 onPressed: newClassroomStore.classroomRoutines.isNotEmpty
@@ -71,17 +72,88 @@ class NewClassroomStep1Screen extends StatelessWidget {
                 return Tab(text: 'All Asanas (${store.asanas.length})');
               }),
               Observer(builder: (_) {
-                return Tab(text: 'Selected (${newClassroomStore.classroomRoutines.length})');
+                return Tab(
+                    text:
+                        'Selected (${newClassroomStore.classroomRoutines.length})');
               }),
             ],
           ),
         ),
+
         body: TabBarView(
           children: [
             _AllAsanasListTabView(newClassroomStore: newClassroomStore),
             _ClassroomRoutinesListTabView(newClassroomStore: newClassroomStore),
           ],
         ),
+
+        // body: Stack(
+        //   children: <Widget>[
+        //     Container(
+        //       height: size.height * 1,
+        //       decoration: BoxDecoration(
+        //         gradient: LinearGradient(
+        //             begin: Alignment.topRight,
+        //             end: Alignment.bottomLeft,
+        //             colors: [
+        //               Colors.redAccent,
+        //               Colors.yellowAccent,
+        //             ]),
+        //         image: DecorationImage(
+        //           alignment: Alignment.centerLeft,
+        //           image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
+        //         ),
+        //       ),
+        //     ),
+        //     SafeArea(
+        //       child: Column(
+        //         children: <Widget>[
+        //           Row(
+        //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        //               children: <Widget>[
+        //                 IconButton(
+        //                     icon: Icon(Icons.arrow_back_ios),
+        //                     onPressed: onCancel),
+        //                 Text(
+        //                   'Asanas',
+        //                   style: Theme.of(context).textTheme.title,
+        //                 ),
+        //                 IconButton(
+        //                     icon: Icon(Icons.arrow_forward_ios),
+        //                     onPressed:
+        //                         newClassroomStore.classroomRoutines.isNotEmpty
+        //                             ? () => _nextStepButtonHandler(context)
+        //                             : null,),
+        //               ]),
+        //           TabBar(
+        //             labelColor: Colors.black,
+        //             tabs: [
+        //               Consumer<AsanasStore>(builder: (_, store, __) {
+        //                 return Tab(text: 'All Asanas (${store.asanas.length})');
+        //               }),
+        //               Observer(builder: (_) {
+        //                 return Tab(
+        //                     text:
+        //                         'Selected (${newClassroomStore.classroomRoutines.length})');
+        //               }),
+        //             ],
+        //           ),
+        //           Container(
+        //             height: size.height * .83,
+        //             child: TabBarView(
+        //               children: [
+        //                 _AllAsanasListTabView(
+        //                     newClassroomStore: newClassroomStore),
+        //                 _ClassroomRoutinesListTabView(
+        //                     newClassroomStore: newClassroomStore),
+        //               ],
+        //             ),
+        //           ),
+        //         ],
+        //       ),
+        //     ),
+        //   ],
+        // ),
       ),
     );
   }
@@ -107,7 +179,8 @@ class _AllAsanasListTabView extends StatelessWidget {
         return Container(
           child: _AsanaListItem(
             asana: asana,
-            onAsanaAdd: () => newClassroomStore.addRoutineToClassroomWithAsana(asana),
+            onAsanaAdd: () =>
+                newClassroomStore.addRoutineToClassroomWithAsana(asana),
             onTap: () => Navigator.of(context).push(MaterialPageRoute(
               fullscreenDialog: true,
               builder: (_) => AsanaScreen(asana),
@@ -143,12 +216,14 @@ class _ClassroomRoutinesListTabView extends StatelessWidget {
               asanaInRoutine: asanasStore.asanas[routine.asanaUniqueName],
               routineAsanaDuration: routine.asanaDuration,
               isShowReorderIcon: newClassroomStore.classroomRoutines.length > 1,
-              onRoutineRemove: () => newClassroomStore.removeRoutineFromClassroom(routine),
+              onRoutineRemove: () =>
+                  newClassroomStore.removeRoutineFromClassroom(routine),
               onTap: () => Navigator.push(
                 context,
                 MaterialPageRoute(
                   fullscreenDialog: true,
-                  builder: (_) => AsanaScreen(asanasStore.asanas[routine.asanaUniqueName]),
+                  builder: (_) =>
+                      AsanaScreen(asanasStore.asanas[routine.asanaUniqueName]),
                 ),
               ),
               onDurationTap: () {
@@ -160,7 +235,8 @@ class _ClassroomRoutinesListTabView extends StatelessWidget {
                       initialDuration: routine.asanaDuration,
                       isZeroDurationAvailable: false,
                       onSave: (duration) {
-                        newClassroomStore.updateRoutineDuration(routine, duration);
+                        newClassroomStore.updateRoutineDuration(
+                            routine, duration);
                       },
                     );
                   },

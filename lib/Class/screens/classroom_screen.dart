@@ -78,7 +78,7 @@ class _ClassroomScreenState extends State<ClassroomScreen> {
       backgroundColor: Colors.white,
       appBar: AppBar(
         titleSpacing: 0,
-        centerTitle: false,
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0.0,
         automaticallyImplyLeading: false,
@@ -150,7 +150,6 @@ class _ClassroomScreenContent extends StatelessWidget {
 
   Widget _getStartButton(BuildContext context) {
     return GestureDetector(
-      // TODO: Change widget to MaterialButton
       onTap: () {
         Navigator.push(
           context,

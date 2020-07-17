@@ -1,5 +1,4 @@
 import 'package:YogaAsana/main_screen.dart';
-import 'package:camera/camera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,9 +6,9 @@ import 'register.dart';
 import '../util/auth.dart';
 
 class Login extends StatefulWidget {
-  final List<CameraDescription> cameras;
+  // final List<CameraDescription> cameras;
 
-  const Login({this.cameras});
+  // const Login({this.cameras});
 
   @override
   _LoginState createState() => _LoginState();
@@ -216,7 +215,7 @@ class _LoginState extends State<Login> {
       context,
       MaterialPageRoute(
         builder: (context) => Register(
-          cameras: widget.cameras,
+          // cameras: widget.cameras,
         ),
       ),
     );
@@ -257,11 +256,11 @@ class _LoginState extends State<Login> {
             context,
             MaterialPageRoute(
               builder: (context) => MainScreen(
-                email: user.email,
-                uid: user.uid,
-                displayName: user.displayName,
-                photoUrl: user.photoUrl,
-                cameras: widget.cameras,
+                // email: user.email,
+                // uid: user.uid,
+                // displayName: user.displayName,
+                // photoUrl: user.photoUrl,
+                // cameras: widget.cameras,
               ),
             ),
           );

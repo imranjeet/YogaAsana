@@ -1,57 +1,47 @@
-import 'package:YogaAsana/util/user.dart';
-import 'package:camera/camera.dart';
-import 'package:provider/provider.dart';
-
 import 'Class/screens/classrooms_screen.dart';
-import 'Class/stores/asanas_store.dart';
-import 'Class/stores/classrooms_store.dart';
 import 'Profile/screens/profile.dart';
 import 'Meditation/screens/meditation_screen.dart';
 import 'package:flutter/material.dart';
-import 'main.dart';
 import 'Home/screens/home.dart';
 
 class MainScreen extends StatefulWidget {
-  final String email;
-  final String uid;
-  final String displayName;
-  final String photoUrl;
-  final List<CameraDescription> cameras;
+  // final String email;
+  // final String uid;
+  // final String displayName;
+  // final String photoUrl;
+  // final List<CameraDescription> cameras;
 
-  const MainScreen({
-    this.email,
-    this.uid,
-    this.displayName,
-    this.photoUrl,
-    this.cameras,
-  });
+  // const MainScreen({
+  //   this.email,
+  //   this.uid,
+  //   this.displayName,
+  //   this.photoUrl,
+  //   this.cameras,
+  // });
   @override
   _MainScreenState createState() => _MainScreenState();
 }
 
 class _MainScreenState extends State<MainScreen> {
+  // bool _isCleaning = false;
 
-  bool _isCleaning = false;
+  // void _clearAndRefresh(BuildContext context) async {
+  //   setState(() => _isCleaning = true);
 
-  void _clearAndRefresh(BuildContext context) async {
-    setState(() => _isCleaning = true);
+  //   try {
+  //     final asanasStore = Provider.of<AsanasStore>(context, listen: false);
+  //     final classroomsStore = Provider.of<ClassroomsStore>(context, listen: false);
 
-    try {
-      final asanasStore = Provider.of<AsanasStore>(context, listen: false);
-      final classroomsStore = Provider.of<ClassroomsStore>(context, listen: false);
+  //     await asanasStore.refreshData();
+  //     await classroomsStore.refreshData();
 
-      await asanasStore.refreshData();
-      await classroomsStore.refreshData();
-
-      // _showNotification(context);
-    } catch (_) {
-      // _showNotification(context, isError: true);
-    } finally {
-      setState(() => _isCleaning = false);
-    }
-  }
-
-
+  //     // _showNotification(context);
+  //   } catch (_) {
+  //     // _showNotification(context, isError: true);
+  //   } finally {
+  //     setState(() => _isCleaning = false);
+  //   }
+  // }
 
   bool activeMeditationIcon = false;
   PageController _pageController;
@@ -80,33 +70,34 @@ class _MainScreenState extends State<MainScreen> {
 
     _pageController.animateToPage(
       page,
-      duration: const Duration(milliseconds: 200),
+      duration: const Duration(milliseconds: 100),
       curve: Curves.ease,
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    User user = User();
+    var size = MediaQuery.of(context).size;
+    // User user = User();
     return Scaffold(
       body: PageView(
         children: <Widget>[
           Home(
-            email: user.email,
-            uid: user.uid,
-            displayName: user.displayName,
-            photoUrl: user.photoUrl,
-            // cameras: cameras,
-          ),
+              // email: user.email,
+              // uid: user.uid,
+              // displayName: user.displayName,
+              // photoUrl: user.photoUrl,
+              // cameras: cameras,
+              ),
           ClassroomsScreen(),
           // YogaScreen(),
           MeditationScreen(),
           Profile(
-            email: user.email,
-            uid: user.uid,
-            displayName: user.displayName,
-            photoUrl: user.photoUrl,
-          ),
+              // email: user.email,
+              // uid: user.uid,
+              // displayName: user.displayName,
+              // photoUrl: user.photoUrl,
+              ),
         ],
         controller: _pageController,
       ),
@@ -125,21 +116,22 @@ class _MainScreenState extends State<MainScreen> {
           BottomNavigationBarItem(
               icon: Image.asset(
                 'assets/icons/2.png',
-                height: 30,
+                height: 25,
                 color: activeMeditationIcon ? Colors.pink : Colors.black54,
               ),
               title: Text('Meditation')),
           BottomNavigationBarItem(
-              icon: Icon(Icons.account_circle), title: Text('Settings')),
+              icon: Icon(Icons.settings), title: Text('Settings')),
         ],
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Color(0xFFFF4848),
+        
         unselectedItemColor: Colors.black45,
         unselectedIconTheme: IconThemeData(
-          size: 30,
+          size: 25,
         ),
         selectedIconTheme: IconThemeData(
-          size: 35,
+          size: 30,
         ),
         currentIndex: _currentPage,
         onTap: _changePage,

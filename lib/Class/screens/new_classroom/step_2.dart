@@ -22,13 +22,13 @@ class NewClassroomStep2Screen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         titleSpacing: 0,
-        centerTitle: false,
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0.0,
         automaticallyImplyLeading: false,
         brightness: Brightness.light,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back_ios),
           color: Colors.grey,
           onPressed: () => Navigator.of(context).pop(),
         ),
@@ -76,26 +76,26 @@ class _NewClassroomStep2Content extends StatelessWidget {
     return ListView(
       padding: EdgeInsets.all(20),
       children: <Widget>[
-        Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(5),
-            color: Colors.grey[100],
-          ),
-          width: double.infinity,
-          height: 150,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Icon(
-                Icons.image,
-                color: Colors.grey,
-                size: 32,
-              ),
-              Text('Select Cover Image'),
-            ],
-          ),
-        ),
-        SizedBox(height: 15),
+        // Container(
+        //   decoration: BoxDecoration(
+        //     borderRadius: BorderRadius.circular(5),
+        //     color: Colors.grey[100],
+        //   ),
+        //   width: double.infinity,
+        //   height: 150,
+        //   child: Column(
+        //     mainAxisAlignment: MainAxisAlignment.center,
+        //     children: <Widget>[
+        //       Icon(
+        //         Icons.image,
+        //         color: Colors.grey,
+        //         size: 32,
+        //       ),
+        //       Text('Select Cover Image'),
+        //     ],
+        //   ),
+        // ),
+        // SizedBox(height: 15),
         _classroomForm(context),
       ],
     );

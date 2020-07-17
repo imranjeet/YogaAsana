@@ -1,7 +1,6 @@
 import 'package:YogaAsana/main_screen.dart';
 import 'package:YogaAsana/util/user.dart';
 import 'package:after_layout/after_layout.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'package:intro_slider/slide_object.dart';
@@ -20,67 +19,72 @@ import 'Class/utils/log.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  
 
   PackageInfo packageInfo = await PackageInfo.fromPlatform();
   SharedPreferences prefs = await SharedPreferences.getInstance();
   Log.init();
 
-  String email = prefs.getString('email');
-  String uid = prefs.getString('uid');
-  String displayName = prefs.getString('displayName');
-  String photoUrl = prefs.getString('photoUrl');
+  // String email = prefs.getString('email');
+  // String uid = prefs.getString('uid');
+  // String displayName = prefs.getString('displayName');
+  // String photoUrl = prefs.getString('photoUrl');
 
-  User user = User();
-  user.setUser({
-    'email': email,
-    'displayName': displayName,
-    'uid': uid,
-    'photoUrl': photoUrl,
-  });
+  // User user = User();
+  // user.setUser({
+  //   'email': email,
+  //   'displayName': displayName,
+  //   'uid': uid,
+  //   'photoUrl': photoUrl,
+  // });
 
   // try {
   //   cameras = await availableCameras();
   // } on CameraException catch (e) {
   //   print('Error: $e.code\nError Message: $e.message');
   // }
-
-  runApp(
-    email != null && uid != null
-        ? MyApp(
-            email: user.email,
-            uid: user.uid,
-            displayName: user.displayName,
-            photoUrl: user.photoUrl,
-            sharedPreferences: prefs,
-            appVersion: packageInfo.version,
-            // cameras: cameras,
-          )
-        : MyApp(
-          sharedPreferences: prefs,
+  runApp(MyApp(
+    sharedPreferences: prefs,
           appVersion: packageInfo.version,
-            // cameras: cameras,
-          ),
-  );
+  ));
+
+  // runApp(
+  //   email != null && uid != null
+  //       ? MyApp(
+  //           email: user.email,
+  //           uid: user.uid,
+  //           displayName: user.displayName,
+  //           photoUrl: user.photoUrl,
+  //           sharedPreferences: prefs,
+  //           appVersion: packageInfo.version,
+  //           // cameras: cameras,
+  //         )
+  //       : MyApp(
+          // sharedPreferences: prefs,
+          // appVersion: packageInfo.version,
+  //           // cameras: cameras,
+  //         ),
+  // );
 }
 
 const kClassroomKeyValueRepositoryKeyName = 'classrooms';
 
 class MyApp extends StatelessWidget {
-  final String email;
-  final String uid;
-  final String displayName;
-  final String photoUrl;
-  final List<CameraDescription> cameras;
+  // final String email;
+  // final String uid;
+  // final String displayName;
+  // final String photoUrl;
+  // final List<CameraDescription> cameras;
   final SharedPreferences sharedPreferences;
   final String appVersion;
 
   const MyApp({
-    this.email,
-    this.uid,
-    this.displayName,
-    this.photoUrl,
-    this.cameras, this.sharedPreferences, this.appVersion,
+    // this.email,
+    // this.uid,
+    // this.displayName,
+    // this.photoUrl,
+    // this.cameras,
+    this.sharedPreferences,
+    this.appVersion,
   });
 
   @override
@@ -93,8 +97,8 @@ class MyApp extends StatelessWidget {
         ),
         Provider<ClassroomsStore>(
           create: (_) {
-            final repository =
-                ClassroomKeyValueRepository(kClassroomKeyValueRepositoryKeyName, sharedPreferences);
+            final repository = ClassroomKeyValueRepository(
+                kClassroomKeyValueRepositoryKeyName, sharedPreferences);
 
             return ClassroomsStore(repository)..init();
           },
@@ -102,58 +106,39 @@ class MyApp extends StatelessWidget {
           lazy: false,
         )
       ],
-    child: MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'YogaAsana',
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'YogaAsana',
+        theme: ThemeData(
+          primarySwatch: Colors.red,
+        ),
+        home: FirstScreen(),
+        // initialRoute: (email != null && uid != null) ? '/' : '/login',
+        // routes: <String, WidgetBuilder>{
+          // '/': (BuildContext context) => FirstScreen(),
+          // '/': (BuildContext context) => MainScreen(
+          //       email: email,
+          //       uid: uid,
+          //       displayName: displayName,
+          //       photoUrl: photoUrl,
+          //       cameras: cameras,
+          //     ),
+          // '/login': (BuildContext context) => Login(
+          //       cameras: cameras,
+          //     ),
+          // 'register': (BuildContext context) => Register(),
+          // 'profile': (BuildContext context) => Profile(
+          //       email: email,
+          //       uid: uid,
+          //       displayName: displayName,
+          //       photoUrl: photoUrl,
+          //     ),
+        // },
       ),
-      initialRoute: (email != null && uid != null) ? '/' : '/login',
-      routes: <String, WidgetBuilder>{
-        // '/': (BuildContext context) => FirstScreen(),
-        '/': (BuildContext context) => MainScreen(
-              email: email,
-              uid: uid,
-              displayName: displayName,
-              photoUrl: photoUrl,
-              cameras: cameras,
-            ),
-        '/login': (BuildContext context) => Login(
-              cameras: cameras,
-            ),
-        // 'register': (BuildContext context) => Register(),
-        // 'profile': (BuildContext context) => Profile(
-        //       email: email,
-        //       uid: uid,
-        //       displayName: displayName,
-        //       photoUrl: photoUrl,
-        //     ),
-      },
-    ),
     );
   }
 }
 
-// void main() {
-//   runApp(MyApp());
-// }
-
-// class MyApp extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       title: 'YogaAsana',
-//       debugShowCheckedModeBanner: false,
-//       theme: ThemeData(
-//         scaffoldBackgroundColor: kBackgroundColor,
-//         fontFamily: "Poppins",
-//         textTheme:
-//             Theme.of(context).textTheme.apply(displayColor: kTitleTextColor),
-//       ),
-//       home: FirstScreen(),
-//     );
-//   }
-// }
 
 class FirstScreen extends StatefulWidget {
   @override
@@ -199,9 +184,9 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return new SplashScreen(
       seconds: 3,
-      navigateAfterSeconds: Navigator.popAndPushNamed(context, '/home'),
+      navigateAfterSeconds: MainScreen(),
       title: new Text(
-        'Welcome In YogaAsana App',
+        'YogaAsana',
         style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
       ),
       image: new Image.asset('assets/images/1.png'),
@@ -231,9 +216,9 @@ class IntroScreenState extends State<IntroScreen> {
 
     slides.add(
       new Slide(
-          title: "Yoga Practice",
+          title: "YogaAsana",
           description:
-              "Allow miles wound place the leave had. To sitting subject no improve studied limited",
+              "Welcome to YogaAsana app. YogaAsana app help improves mental and physical health...",
           pathImage: "assets/images/1.png",
           colorBegin: Colors.red,
           colorEnd: Colors.yellow,
@@ -246,18 +231,24 @@ class IntroScreenState extends State<IntroScreen> {
       new Slide(
         title: "Meditation",
         description:
-            "Ye indulgence unreserved connection alteration appearance",
-        pathImage: "assets/images/2.png",
-        backgroundColor: Color(0xff203152),
+            "Live happier and healthier by learning the fundamentals of meditation and mindfulness.",
+        pathImage: "assets/images/9.png",
+        colorBegin: Colors.red,
+        colorEnd: Colors.yellow,
+        directionColorBegin: Alignment.topRight,
+        directionColorEnd: Alignment.bottomLeft
       ),
     );
     slides.add(
       new Slide(
-        title: "Diet Control and Tips",
+        title: "Yoga Classes",
         description:
-            "Much evil soon high in hope do view. Out may few northward believing attempted. Yet timed being songs marry one defer men our. Although finished blessing do of",
+            "Yoga classes help in achieving daily yoga goals. You can create your own yoga classes.",
         pathImage: "assets/images/3.png",
-        backgroundColor: Color(0xff9932CC),
+        colorBegin: Colors.red,
+        colorEnd: Colors.yellow,
+        directionColorBegin: Alignment.topRight,
+        directionColorEnd: Alignment.bottomLeft
       ),
     );
   }
@@ -273,6 +264,7 @@ class IntroScreenState extends State<IntroScreen> {
   Widget build(BuildContext context) {
     return new IntroSlider(
       slides: this.slides,
+      onTabChangeCompleted: this.onDonePress,
       onDonePress: this.onDonePress,
     );
   }

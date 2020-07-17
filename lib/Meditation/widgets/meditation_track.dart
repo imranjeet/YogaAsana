@@ -215,6 +215,7 @@ class TrackPlayerState extends State<TrackPlayer> {
         borderRadius: BorderRadius.circular(13),
         child: Container(
           width: constraint.maxWidth / 2 - 5,
+          height: MediaQuery.of(context).size.height * .08,
           // constraint.maxWidth provide us the available with for this widget
           // padding: EdgeInsets.all(16),
           decoration: BoxDecoration(

@@ -1,31 +1,30 @@
 import 'package:YogaAsana/Home/widgets/grid_yoga_items.dart';
 import 'package:YogaAsana/util/user.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
-  final String email;
-  final String uid;
-  final String displayName;
-  final String photoUrl;
-  final List<CameraDescription> cameras;
+  // final String email;
+  // final String uid;
+  // final String displayName;
+  // final String photoUrl;
+  // final List<CameraDescription> cameras;
 
-  const Home({
-    this.email,
-    this.uid,
-    this.displayName,
-    this.photoUrl,
-    this.cameras,
-  });
+  // const Home({
+  //   this.email,
+  //   this.uid,
+  //   this.displayName,
+  //   this.photoUrl,
+  //   this.cameras,
+  // });
   
   @override
   Widget build(BuildContext context) {
-    User user = User();
+    // User user = User();
     var size = MediaQuery.of(context).size;
     return Stack(
       children: <Widget>[
         Container(
-          height: size.height * .40,
+          height: size.height * .45,
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topRight,
@@ -56,12 +55,22 @@ class Home extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           Container(
-                            height: size.height * .20,
+                            height: size.height * .30,
                             width: size.width * .5,
-                            child: Center(child: Text("Good morning \n${user.displayName}", style: TextStyle(fontSize: 20, color: Colors.black, fontFamily: "Poppins", fontWeight: FontWeight.bold,),))),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: <Widget>[
+                                Padding(
+                                  padding: const EdgeInsets.only(top: 20.0, bottom: 8),
+                                  child: Text("YogaAsana", style: TextStyle(fontSize: 20, color: Colors.black, fontFamily: "Poppins", fontWeight: FontWeight.bold,),),
+                                ),
+                                
+                                Text("Regular yoga practice creates mental clarity and calmness increases body awareness relieves chronic stress patterns in the mind.", style: TextStyle(fontFamily: "Poppins",),),
+                              ],
+                            )),
                           Container(
-                            height: size.height * .2,
-                            width: size.width * .3,
+                            height: size.height * .30,
+                            width: size.width * .35,
                             child: Image.asset("assets/images/1.png"),
                           ),
                         ],
@@ -140,7 +149,7 @@ class Home extends StatelessWidget {
                       //
                     ]),
                 SizedBox(
-                  height: 10,
+                  height: 5,
                 ),
                 Expanded(
                     child: GridYogaItems(

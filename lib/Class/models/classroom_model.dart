@@ -8,7 +8,7 @@ part 'classroom_model.g.dart';
 
 @JsonSerializable(explicitToJson: true)
 class ClassroomModel {
-  static const DEFAULT_DURATION_BETWEEN_ASANAS = Duration(seconds: 60);
+  static const DEFAULT_DURATION_BETWEEN_ASANAS = Duration(seconds: 5);
 
   @JsonKey(ignore: true)
   final String id;

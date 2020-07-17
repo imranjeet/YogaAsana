@@ -5,7 +5,6 @@ import 'package:YogaAsana/services/yoga_post_service.dart';
 import 'package:YogaAsana/util/pose_data.dart';
 import 'package:YogaAsana/widgets/ProgressWidget.dart';
 import 'package:YogaAsana/Home/widgets/yoga_card.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 
 class GridYogaItems extends StatefulWidget {
@@ -15,8 +14,8 @@ class GridYogaItems extends StatefulWidget {
 
 class _GridYogaItemsState extends State<GridYogaItems> {
 
-  int selectedCameraIdx;
-  List<CameraDescription> cameras;
+  // int selectedCameraIdx;
+  // List<CameraDescription> cameras;
   YogaPostService _yogaPostService = YogaPostService();
 
   Future<List<YogaPost>> _getAllYogaPost() async {
@@ -42,21 +41,21 @@ class _GridYogaItemsState extends State<GridYogaItems> {
     return _list;
   }
 
-  @override
-    void initState() {
-      super.initState();
+  // @override
+  //   void initState() {
+  //     super.initState();
 
-      // Get the listonNewCameraSelected of available cameras.
-      // Then set the first camera as selected.
-      availableCameras()
-          .then((availableCameras) {
-        cameras = availableCameras;
+  //     // Get the listonNewCameraSelected of available cameras.
+  //     // Then set the first camera as selected.
+  //     availableCameras()
+  //         .then((availableCameras) {
+  //       cameras = availableCameras;
 
-      })
-          .catchError((err) {
-        print('Error: $err.code\nError Message: $err.message');
-      });
-    }
+  //     })
+  //         .catchError((err) {
+  //       print('Error: $err.code\nError Message: $err.message');
+  //     });
+  //   }
 
   @override
   Widget build(BuildContext context) {
@@ -75,18 +74,18 @@ class _GridYogaItemsState extends State<GridYogaItems> {
                   ),
                   physics: BouncingScrollPhysics(
                     parent: AlwaysScrollableScrollPhysics()),
-                  itemCount: 13,
+                  itemCount: snapshot.data.length,
                   itemBuilder: (
                     BuildContext contaxt,
                     int index,
                   ) {
                     return YogaCard(
                       yogaPost: snapshot.data[index],
-                      cameras: cameras,
-                      title: asanas[index],
-                      model:
-                          "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
-                      customModel: asanas[index],
+                      // cameras: cameras,
+                      // title: asanas[index],
+                      // model:
+                      //     "assets/models/posenet_mv1_075_float_from_checkpoints.tflite",
+                      // customModel: asanas[index],
                     );
                   }),
             );

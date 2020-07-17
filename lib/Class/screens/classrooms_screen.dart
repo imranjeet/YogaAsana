@@ -7,7 +7,6 @@ import 'package:YogaAsana/Class/screens/classroom_screen.dart';
 import 'package:YogaAsana/Class/screens/new_classroom/new_classroom_screen.dart';
 import 'package:YogaAsana/Class/stores/classrooms_store.dart';
 import 'package:YogaAsana/Class/stores/new_classroom_store.dart';
-import 'package:YogaAsana/Class/styles.dart';
 import 'package:YogaAsana/Class/utils/local_notification.dart';
 import 'package:YogaAsana/Class/utils/log.dart';
 import 'package:YogaAsana/util/constant.dart';
@@ -37,7 +36,7 @@ class ClassroomsScreen extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Container(
-          height: size.height * .48,
+          height: size.height * .46,
           decoration: BoxDecoration(
             gradient: LinearGradient(
                 begin: Alignment.topRight,
@@ -55,21 +54,21 @@ class ClassroomsScreen extends StatelessWidget {
         SafeArea(
           child: Column(
             children: <Widget>[
-              SizedBox(height: 15),
+              SizedBox(height: size.height * .02),
               Text(
                 "Yoga Classes",
                 style: TextStyle(
-                  fontSize: 28,
+                  fontSize: 25,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: 5),
-              Text("Create your own yoga class"),
-              SizedBox(height: 20),
+              SizedBox(height: size.height * .01),
+              Text("Create your own yoga classes"),
+              SizedBox(height: size.height * .03),
               _PredefinedClassesList(),
-              SizedBox(height: 15),
+              SizedBox(height: size.height * .01),
               _ActiveClassesList(),
-              SizedBox(height: 15),
+              SizedBox(height: size.height * .01),
               _CreateClass(),
             ],
           ),
@@ -80,14 +79,15 @@ class ClassroomsScreen extends StatelessWidget {
 }
 
 class _PredefinedClassesList extends StatelessWidget {
-  Widget _getListItem(String title, Color bgColor, String imageAsset) {
+  Widget _getListItem(
+      String title, Color bgColor, String imageAsset, Size size) {
     return Padding(
       padding: const EdgeInsets.all(1.0),
       child: ClipRRect(
         // borderRadius: BorderRadius.circular(15),
         child: Container(
-          height: 200,
-          width: 200,
+          // height: size.height * .20,
+          // width: sizeW,
           // padding: EdgeInsets.all(5),
           decoration: BoxDecoration(
             color: Colors.white,
@@ -110,7 +110,7 @@ class _PredefinedClassesList extends StatelessWidget {
                 children: <Widget>[
                   Spacer(),
                   Container(
-                    height: 100,
+                    height: size.height * .15,
                     width: 100,
                     child: Image(
                       image: AssetImage(imageAsset),
@@ -124,9 +124,7 @@ class _PredefinedClassesList extends StatelessWidget {
                       title,
                       overflow: TextOverflow.ellipsis,
                       textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 20,
-                      ),
+                      style: TextStyle(fontSize: 20, color: Colors.black54),
                     ),
                   ),
                 ],
@@ -140,9 +138,11 @@ class _PredefinedClassesList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Container(
-      padding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-      height: MediaQuery.of(context).size.height * 0.25,
+      
+      padding: EdgeInsets.symmetric(horizontal: 15),
+      height: MediaQuery.of(context).size.height * 0.24,
       child: Consumer<ClassroomsStore>(
         builder: (_, store, __) {
           return Observer(
@@ -154,9 +154,9 @@ class _PredefinedClassesList extends StatelessWidget {
               return GridView.builder(
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
-                  childAspectRatio: .95,
-                  crossAxisSpacing: 20,
-                  mainAxisSpacing: 20,
+                  childAspectRatio: 1,
+                  crossAxisSpacing: 15,
+                  mainAxisSpacing: 15,
                 ),
                 itemCount: store.predefinedClassrooms.length,
                 // scrollDirection: Axis.horizontal,
@@ -176,6 +176,8 @@ class _PredefinedClassesList extends StatelessWidget {
                       classroom.title,
                       Colors.amber[200],
                       images[index],
+                      size,
+                      // sizeW,
                     ),
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
@@ -201,6 +203,7 @@ class _PredefinedClassesList extends StatelessWidget {
 
 class _ActiveClassesList extends StatelessWidget {
   Widget _classroomListItem(ClassroomModel classroom, BuildContext context) {
+    var size = MediaQuery.of(context).size;
     final rand = Random();
 
     return Padding(
@@ -217,18 +220,21 @@ class _ActiveClassesList extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
         ),
         child: ListTile(
-          leading: Image.asset("assets/icons/5.png", height: 100,),
-            // emojiForClassroom[rand.nextInt(9)],
-            // textScaleFactor: 2.8,
-          
+          leading: Image.asset(
+            "assets/icons/5.png",
+            height: size.height * .1,
+          ),
+          // emojiForClassroom[rand.nextInt(9)],
+          // textScaleFactor: 2.8,
+
           title: Padding(
             padding: const EdgeInsets.only(bottom: 5.0, left: 10),
             child: Text(
               classroom.title,
               style: TextStyle(
                   fontSize: 24,
-                  fontWeight: FontWeight.w900,
-                  color: Colors.black),
+                  fontWeight: FontWeight.w600,
+                  color: Colors.black54),
             ),
           ),
           subtitle: Padding(
@@ -237,7 +243,7 @@ class _ActiveClassesList extends StatelessWidget {
               '${asanasCount(classroom.classroomRoutines.length)}'
               ' • ${classroomTimeRounded(classroom.totalDuration)}',
               maxLines: 1,
-              style: TextStyle(fontSize: 16, color: Colors.black),
+              style: TextStyle(fontSize: 16, color: Colors.black54),
             ),
           ),
 
@@ -311,7 +317,7 @@ class _ActiveClassesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .38,
+      height: MediaQuery.of(context).size.height * .39,
       child: Observer(
         builder: (_) {
           final store = Provider.of<ClassroomsStore>(context, listen: false);
@@ -409,9 +415,12 @@ class _CreateClass extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FloatingActionButton(
-      child: Icon(Icons.add),
-      onPressed: () => _onCreateButtonTap(context),
+    return Container(
+      height: MediaQuery.of(context).size.height * .08,
+      child: FloatingActionButton(
+        child: Icon(Icons.add),
+        onPressed: () => _onCreateButtonTap(context),
+      ),
     );
   }
 }

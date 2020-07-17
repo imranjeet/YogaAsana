@@ -1,23 +1,35 @@
 [
   {
     "title": "Beginner",
-    "description": "Этот класс содержит всего одну асану, позу \"лотуса\" для практики медитации в неподвижном состоянии",
+    "description": "Beginner class to learn some basic yoga poses for beginners.",
     "coverImage": null,
-    "timeBetweenAsanas": 0,
+    "timeBetweenAsanas": 5,
     "isPredefined": true,
     "asanasUniqueNames": [
       "lotus"
     ],
     "classroomRoutines": [
       {
-        "asanaUniqueName": "lotus",
-        "asanaDuration": 260
+        "asanaUniqueName": "Trikonasana",
+        "asanaDuration": 60
+      },
+      {
+        "asanaUniqueName": "Vrikshasana",
+        "asanaDuration": 120
+      },
+      {
+        "asanaUniqueName": "Virbhadrasana",
+        "asanaDuration": 180
+      },
+      {
+        "asanaUniqueName": "Bhujangasana",
+        "asanaDuration": 240
       }
     ]
   },
   {
     "title": "Intermediate",
-    "description": "Рекомендуем выполнять утром после пробуждения",
+    "description": "Intermediate class to learn some basic yoga poses for intermediates",
     "coverImage": null,
     "timeBetweenAsanas": 10,
     "isPredefined": true,
@@ -28,16 +40,16 @@
     ],
     "classroomRoutines": [
       {
-        "asanaUniqueName": "cobra",
-        "asanaDuration": 30
-      },
-      {
-        "asanaUniqueName": "butterfly",
-        "asanaDuration": 45
-      },
-      {
-        "asanaUniqueName": "spin_half_lotus",
+        "asanaUniqueName": "Ustrasana",
         "asanaDuration": 120
+      },
+      {
+        "asanaUniqueName": "Halasana",
+        "asanaDuration": 240
+      },
+      {
+        "asanaUniqueName": "Sarvangasana",
+        "asanaDuration": 480
       }
     ]
   }

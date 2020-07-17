@@ -7,59 +7,109 @@ import 'Bloc/timer_bloc.dart';
 import 'ticker.dart';
 
 class PracticeTimer extends StatelessWidget {
+  final String imgSrc;
+
+  const PracticeTimer({Key key, this.imgSrc}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => TimerBloc(ticker: Ticker()),
-      child: Timer(),
+      child: Timer(
+        imgSrc: imgSrc,
+      ),
     );
   }
 }
 
 class Timer extends StatelessWidget {
+  final String imgSrc;
+
   static const TextStyle timerTextStyle = TextStyle(
     fontSize: 60,
     fontWeight: FontWeight.bold,
   );
 
+  const Timer({Key key, this.imgSrc}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(title: Text('Flutter Timer')),
+      // appBar: AppBar(title: Text('Flutter Timer')),
       body: Stack(
         children: [
-          Background(),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: EdgeInsets.symmetric(vertical: 100.0),
-                child: Center(
-                  child: BlocBuilder<TimerBloc, TimerState>(
-                    builder: (context, state) {
-                      final String minutesStr = ((state.duration / 60) % 60)
-                          .floor()
-                          .toString()
-                          .padLeft(2, '0');
-                      final String secondsStr = (state.duration % 60)
-                          .floor()
-                          .toString()
-                          .padLeft(2, '0');
-                      return Text(
-                        '$minutesStr:$secondsStr',
-                        style: Timer.timerTextStyle,
-                      );
+          Container(
+            height: size.height * .45,
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  colors: [
+                    Colors.redAccent,
+                    Colors.yellowAccent,
+                  ]),
+              image: DecorationImage(
+                alignment: Alignment.centerLeft,
+                image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 10.0, vertical: 10),
+                  child: InkWell(
+                    child: Icon(Icons.arrow_back_ios),
+                    onTap: () {
+                      Navigator.pop(context);
                     },
                   ),
                 ),
-              ),
-              BlocBuilder<TimerBloc, TimerState>(
-                buildWhen: (previousState, state) =>
-                    state.runtimeType != previousState.runtimeType,
-                builder: (context, state) => Actions(),
-              ),
-            ],
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: Container(
+                    alignment: Alignment.topCenter,
+                    height: size.height * .25,
+                    width: size.width * .95,
+                    child: Image.network(imgSrc),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.symmetric(vertical: 100.0,),
+                  child: Center(
+                    child: BlocBuilder<TimerBloc, TimerState>(
+                      builder: (context, state) {
+                        final String minutesStr = ((state.duration / 60) % 60)
+                            .floor()
+                            .toString()
+                            .padLeft(2, '0');
+                        final String secondsStr = (state.duration % 60)
+                            .floor()
+                            .toString()
+                            .padLeft(2, '0');
+                        return Text(
+                          '$minutesStr:$secondsStr',
+                          style: Timer.timerTextStyle,
+                        );
+                      },
+                    ),
+                  ),
+                ),
+                BlocBuilder<TimerBloc, TimerState>(
+                  buildWhen: (previousState, state) =>
+                      state.runtimeType != previousState.runtimeType,
+                  builder: (context, state) => Actions(),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: Background(),
+                ),
+              ],
+            ),
           ),
         ],
       ),
@@ -154,7 +204,7 @@ class Background extends StatelessWidget {
         gradientBegin: Alignment.bottomCenter,
         gradientEnd: Alignment.topCenter,
       ),
-      size: Size(double.infinity, double.infinity),
+      size: Size(double.infinity, MediaQuery.of(context).size.height * .15),
       waveAmplitude: 25,
       backgroundColor: Colors.blue[50],
     );

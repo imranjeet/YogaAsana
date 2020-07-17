@@ -1,42 +1,114 @@
 [
   {
     "title": "Trikonasana",
-    "uniqueName": "moon",
+    "uniqueName": "Trikonasana",
     "level": 1,
     "imageUrl": "http://yoga.infous.xyz/public/14032.png",
-    "description": "Instructions\n\n\n Step 1 \n Squat down from Tadasana with your inner feet a few inches apart. If it isn't possible to keep your heels on the floor, support them on a thickly folded blanket. Separate your knees wider than your hips and lean the torso forward, between the inner thighs. Stretch your arms forward, then bend your elbows, place your hands on the floor and the backs of the upper arms against the shins.\n\nStep 2\n Snuggle your inner thighs against the sides of your torso, and your shins into your armpits, and slide the upper arms down as low onto the shins as possible. Lift up onto the balls of your feet and lean forward even more, taking the weight of your torso onto the backs of the upper arms. In Bakasana you consciously attempt to contract your front torso and round your back completely. To help yourself do this, keep your tailbone as close to your heels as possible.\n\nStep 3\n With an exhalation, lean forward even more onto the backs of your upper arms, to the point where the balls of your feet leave the floor. Now your torso and legs are balanced on the backs of your upper arms. As a beginner at this pose, you might want to stop here, perched securely on the bent arms.\n\nStep 4\n But if you are ready to go further, squeeze the legs against the arms, press the inner hands firmly to the floor and (with an inhalation) straighten the elbows. Seen from the side the arms are angled slightly forward relative to the floor. The inner knees should be glued to the outer arms, high up near the armpits. Keep the head in a neutral position with your eyes looking at the floor, or lift the head slightly, without compressing the back of the neck, and look forward.\n\nStep 5\n Stay in the pose anywhere from 20 seconds to 1 minute. To release, exhale and slowly lower your feet to the floor, back into a squat.\n\n\nBenefits\n\nStrengthens arms and wrists\nStretches the upper back\nStrengthens the abdominal muscles\nOpens the groins\nTones the abdominal organs",
-    "benefits": "Исходное положение — наклонный упор: стопы на ширине плеч, руки на ширине плеч, все тело вытянуто по наклонной прямой от пяток до макушки. Упираясь в пол основаниями ладоней, развернуть локтевые суставы вперед и, прижимая локти к корпусу, опустить корпус ниже, так, чтобы тело расположилось на четырех опорных точках параллельно полу. Задержаться в этой позе с ровным дыханием сколько возможно, "
-  },
-  {
-    "title": "Половина Луны",
-    "uniqueName": "half_moon",
-    "level": 3,
-    "imageUrl": "https://s.hanuman.ru/files/imagecache/asana_block1/010_ardhachanda_asana_0.jpg",
-    "description": "Поставить стопы параллельно. Вдоль внешнего края правой  стопы провести воображаемую линию и на расстоянии 15—20 сантиметров от стопы поставить правую ладонь (опирайтесь на пальцы: мизинец ближе к стопе — большой палец на той же линии, дальше от стопы). Придерживаясь левой рукой о пол, поднять левую ногу, выпрямить ее, развернуть стопу кверху, развернуть таз влево. Сделать несколько вдохов и выдохов. Вытянуть левую руку вперед, накрыв плечом левое ухо, ладонь повернуть к полу. Взгляд направить в пол.",
-    "benefits": "Не разворачивайте таз к полу. Не поднимайте руку вверх до тех пор пока не сможете как следует развернуть грудную клетку и выпрямить опорную ногу.Не отрывайте внутреннюю часть стопы от пола."
-  },
-  {
-    "title": "Поза Героя 3",
-    "uniqueName": "hero3",
-    "level": 5,
-    "imageUrl": "https://s.hanuman.ru/files/imagecache/asana_block1/III_01.JPG",
-    "description": "",
+    "description": "Instructions\n\n\n Step 1 \n\n Squat down from Tadasana with your inner feet a few inches apart. If it isn't possible to keep your heels on the floor, support them on a thickly folded blanket. Separate your knees wider than your hips and lean the torso forward, between the inner thighs. Stretch your arms forward, then bend your elbows, place your hands on the floor and the backs of the upper arms against the shins.\n\nStep 2\n\n Snuggle your inner thighs against the sides of your torso, and your shins into your armpits, and slide the upper arms down as low onto the shins as possible. Lift up onto the balls of your feet and lean forward even more, taking the weight of your torso onto the backs of the upper arms. In Bakasana you consciously attempt to contract your front torso and round your back completely. To help yourself do this, keep your tailbone as close to your heels as possible.\n\nStep 3\n\n With an exhalation, lean forward even more onto the backs of your upper arms, to the point where the balls of your feet leave the floor. Now your torso and legs are balanced on the backs of your upper arms. As a beginner at this pose, you might want to stop here, perched securely on the bent arms.\n\nStep 4\n\n But if you are ready to go further, squeeze the legs against the arms, press the inner hands firmly to the floor and (with an inhalation) straighten the elbows. Seen from the side the arms are angled slightly forward relative to the floor. The inner knees should be glued to the outer arms, high up near the armpits. Keep the head in a neutral position with your eyes looking at the floor, or lift the head slightly, without compressing the back of the neck, and look forward.\n\nStep 5\n Stay in the pose anywhere from 20 seconds to 1 minute. To release, exhale and slowly lower your feet to the floor, back into a squat.\n\n\nBenefits\n\nStrengthens arms and wrists\n\nStretches the upper back\n\nStrengthens the abdominal muscles\n\nOpens the groins\n\nTones the abdominal organs",
     "benefits": ""
   },
   {
-    "title": "Поза Героя 1",
-    "uniqueName": "hero1",
-    "level": 3,
-    "imageUrl": "https://s.hanuman.ru/files/imagecache/asana_block1/I_01_.JPG",
-    "description": "Встать в Тадасану, расставить ноги, оставив между ними чуть более метра (если удобно — больше). Полностью развернуть вправо корпус и правую ступню, левую ступню — на 60 градусов вправо. Сгибая правую ногу, толкать колено вперед, словно выталкивая бедро из сустава. Поджать копчик, выпрямляя поясницу, насколько это возможно. Толкая ногами пол, вытянуть руки вверх и вперед. В некоторых школах предлагают соединить ладони. Тянуться вверх, удлиняя руки и спину.",
-    "benefits": "Не заламывайте шею, не сгибайте локти. При ослабленных мышцах бедер в начале освоения позы можно опираться на руки, оставляя их на полу возле стопы. При этом старайтесь не поднимать вверх таз. В самых «запущенных» случаях рекомендуют подставлять под согнутую ногу стул и время от времени отдыхать на нем, однако в этом случае эффекта от выполнения упражнения придется подождать."
+    "title": "Vrikshasana",
+    "uniqueName": "Vrikshasana",
+    "level": 2,
+    "imageUrl": "http://yoga.infous.xyz/public/15037.png",
+    "description": "Instruction\n\n\nStand tall and straight with arms by the side of your body.\n\nBend your right knee and place the right foot high up on your left thigh. The sole of the foot should be placed flat and firmly near the root of the thigh.\n\nMake sure that your left leg is straight. Find your balance.\n\nOnce you are well balanced, take a deep breath in, gracefully raise your arms over your head from the side, and bring your palms together in ‘Namaste’ mudra (hands-folded position).\n\nLook straight ahead in front of you, at a distant object. A steady gaze helps maintain a steady balance.\n\nEnsure that your spine is straight. Your entire body should be taut, like a stretched elastic band. Keep taking in long deep breaths. With each exhalation, relax the body more and more. Just be with the body and the breath with a gentle smile on your face. \n\nWith slow exhalation, gently bring down your hands from the sides. You may gently release the right leg. \n\nStand tall and straight as you did at the beginning of the posture. Repeat this pose with the left leg off the ground on the right thigh. \n\nBenefits\n\n\nThis pose leaves you in a state of rejuvenation. It stretches the legs, back and arms, and invigorates you.    \n\nIt brings balance and equilibrium to your mind. \n\nIt helps improve concentration. \n\nThis posture has been found to relieve some cases of sciatica. \n\n It makes the legs strong, improves balance, and opens the hips.\n\n Helps those who are suffering from sciatica.",
+    "benefits": ""
   },
   {
-    "title": "Поза горы",
-    "uniqueName": "mountain",
-    "level": 0,
-    "imageUrl": "https://s.hanuman.ru/files/imagecache/asana_block1/011_Tadasana_0.jpg",
-    "description": "Встать прямо, соединив стопы, так чтобы внешние стороны стоп были параллельны. Распределить вес тела по поверхности стоп равномерно. Напрячь колени, подтянуть кверху коленные чашечки. Подтянуть живот вверх, вытянуть позвоночник, выпрямить шею.",
-    "benefits": "Не «проваливайте» поясницу веред. Не задирайте подбородок. Не разводите носки стоп в стороны."
+    "title": "Virbhadrasana",
+    "uniqueName": "Virbhadrasana",
+    "level": 3,
+    "imageUrl": "http://yoga.infous.xyz/public/32072.png",
+    "description": "Instructions\n\n\nVirabhadrasana or Virabhadrasana is one of the most graceful yoga postures and it adds beauty and grace to one’s yoga practice.\n\nStand straight with your legs wide apart by a distance of at least 3-4 feet.\n\nTurn your right foot out by 90 degrees and left foot in by about 15 degrees.\n\nCheckpoint: Is the heel of the right foot aligned to the center of the left foot?\n\nLift both arms sideways to shoulder height with your palms facing upwards.\n\nCheckpoint: Are your arms parallel to the ground? Breathing out, bend your right knee.\n\nCheckpoint: Are your right knee and right ankle forming ja straight line? Ensure that your knee does not overshoot the ankle.\n\nTurn your head and look to your right.\n\nAs you settle down in the yoga posture stretch your arms further.\n\nMake a gentle effort to push your pelvis down.\n\n Hold the yoga posture with the determination of a warrior.\n\n Smile like a happy smiling warrior.\n\n Keep breathing as you go down.\n\nBreathing in, come up.\n\nBreathing out, bring your hands down from the sides.\n\nRepeat the yoga posture for the left side (turn your left foot out by 90 degrees and turn the right foot in by about 15 degrees).",
+    "benefits": ""
+  },
+  {
+    "title": "Bhujangasana",
+    "uniqueName": "Bhujangasana",
+    "level": 4,
+    "imageUrl": "http://yoga.infous.xyz/public/44132.png",
+    "description": "Instruction\n\n\nLie on your stomach with your toes flat on the floor and forehead resting on the ground.\n\nKeep your legs close together, with your feet and heels lightly touching each other.\n\nPlace your hands (palms downwards) under your shoulders, keeping your elbows parallel and close to your torso.\n\nTaking a deep breath in, slowly lift your head, chest and abdomen while keeping your navel on the floor.\n\nPull your torso back and off the floor with the support of your hands.\n\nCheckpoint: Are you putting equal pressure on both the palms? Keep breathing with awareness, as you curve your spine vertebra by vertebra.\n\nIf possible, straighten your arms by arching your back as much as possible; tilt your head back and look up.\n\nCheckpoint: Are your shoulders away from your ears? Keep your shoulders relaxed, even if it means bending your elbows.\n\n With regular practice, you will be able to deepen the stretch by straightening the elbows.\n\nEnsure that your feet are still close together.\n\n Keep smiling and breathing.\n\n Smiling Cobras! Don’t overdo the stretch or overstrain yourself.\n\nBreathing out, gently bring your abdomen, chest and head back to the floor.",
+    "benefits": ""
+  },
+  {
+    "title": "Sukhasana",
+    "uniqueName": "Sukhasana",
+    "level": 5,
+    "imageUrl": "http://yoga.infous.xyz/public/30411.png",
+    "description": "Instructions\n\n\nArrange supportive padding (blanket, block, or bolster) under your sit bones so that your hips will be higher than your knees when you come into the pose.\n\nCome to sit on your padding in a comfortable, cross-legged position. Shift the flesh of your butt to each side with your hands so that your sit bones have a firm foundation.\n\nLean back and forth and side to side with your torso a few times to make sure that your shoulders are aligned directly over your hips.\n\n Slide the shoulder blades down your back so that your shoulders move away from your ears.\n\n The crown of your head should rise towards the ceiling.\n\nYour hands can rest in your lap or on the tops of your thighs. Turn your palms up to be receptive or down to feel grounded.\n\nOn your inhalations, feel your spine grow long. On your exhalations, root down through your seat.",
+    "benefits": ""
+  },
+  {
+    "title": "Tadasana",
+    "uniqueName": "Tadasana",
+    "level": 6,
+    "imageUrl": "http://yoga.infous.xyz/public/11263.png",
+    "description": "Instructions\n\n\nStep 1. Stand with the bases of your big toes touching, heels slightly apart (so that your second toes are parallel). Lift and spread your toes and the balls of your feet, then lay them softly down on the floor. Rock back and forth and side to side. Gradually reduce this swaying to a standstill, with your weight balanced evenly on the feet. \n\nstep 2. Firm your thigh muscles and lift the knee caps, without hardening your lower belly.Lift the inner ankles to strengthen the inner arches, then imagine a line of energy all the way up along your inner thighs to your groins, and from there through the core of your torso, neck, and head, and out through the crown of your head. Turn the upper thighs slightly inward. Lengthen your tailbone toward the floor and lift the pubis toward the navel.\n\nStep 3. Press your shoulder blades into your back, then widen them across and release them down your back. Without pushing your lower front ribs forward, lift the top of your sternum straight toward the ceiling. Widen your collarbones. Hang your arms beside the torso.\n\nStep 4. Balance the crown of your head directly over the center of your pelvis, with the underside of your chin parallel to the floor, throat soft, and the tongue wide and flat on the floor of your mouth. Soften your eyes.\n\nStep 5. Tadasana is usually the starting position for all the standing poses. But it's useful to practice Tadasana as a pose in itself. Stay in the pose for 30 seconds to 1 minute, breathing easily.",
+    "benefits": ""
+  },
+  {
+    "title": "Dhanurasana",
+    "uniqueName": "Dhanurasana",
+    "level": 7,
+    "imageUrl": "http://yoga.infous.xyz/public/21797.png",
+    "description": "Instruction\n\n\nThis pose is so called because it looks like an archer's bow, the torso and legs representing the body of the bow, and the arms the string.\n\nStep 1. Lie on your belly with your hands alongside your torso, palms up. (You can lie on a folded blanket to pad the front of your torso and legs.) Exhale and bend your knees, bringing your heels as close as you can to your buttocks. Reach back with your hands and take hold of your ankles (but not the tops of the feet). Make sure your knees aren't wider than the width of your hips, and keep your knees hip width for the duration of the pose.\n\nStep 2. Inhale and strongly lift your heels away from your buttocks and, at the same time, lift your thighs away from the floor. This will have the effect of pulling your upper torso and head off the floor. Burrow the tailbone down toward the floor, and keep your back muscles soft. As you continue lifting the heels and thighs higher, press your shoulder blades firmly against your back to open your heart. Draw the tops of the shoulders away from your ears. Gaze forward.\n\nStep 3. With the belly pressed against the floor, breathing will be difficult. Breathe more into the back of your torso, and be sure not to stop breathing.\n\nStep 4. Stay in this pose anywhere from 20 to 30 seconds. Release as you exhale, and lie quietly for a few breaths. You can repeat the pose once or twice more.",
+    "benefits": ""
+  },
+  {
+    "title": "Padhastasana",
+    "uniqueName": "Padhastasana",
+    "level": 8,
+    "imageUrl": "http://yoga.infous.xyz/public/34901.png",
+    "description": "Instructions\n\n\n1). Standing with your feet together, exhale and bend forward at the hips, keeping your arms extended throughout the movement, finishing with your upper torso and arms hanging straight downward.]\n\n2). Inhale slowly, draw the head and neck forward (look up) and lengthen the spine.\n\n3). Exhale again and relax the head, neck and spine downwards, fixing your fingers and palms firmly under your toes and the balls of your feet into the complete padahastasana.\n\n4). To come out of the posture, release your hands from beneath the feet, straighten your arms, inhale and slowly come back up into tala asana, with the arms again extended high overhead.\n\n5). Exhale, slowly lower the hands back down and relax in sama sthiti asana(normal pose).",
+    "benefits": ""
+  },
+  {
+    "title": "Ustrasana",
+    "uniqueName": "Ustrasana",
+    "level": 9,
+    "imageUrl": "http://yoga.infous.xyz/public/42199.png",
+    "description": "Instructions\n\n\n1. Come to your knees, with your legs hip-width apart. Place your hands on your hips, with your thumbs on your sacrum, the bony plate at the base of your spine. Keep your hips over your knees and internally rotate your thighs, squeezing them toward each other.\n\n2. Inhale to engage your lower belly and reach your tailbone toward your knees, creating space between your lower vertebrae.\n\n3. On another inhalation, lift your sternum and draw your elbows toward each other, allowing your rib cage to expand.\n\n4. Keep your chest raised, your core engaged, your spine long, and your chin tucked as you drop your hands toward your heels.\n\n5. Press the heels of your hands into the heels of your feet while draping the fingers over the soles. Keep lifting through your sternum.\n\n6. Now lift your shoulders to allow the trapezius muscles between the shoulder blades to rise up and cushion your cervical spine. Gently lower the head and neck and gaze at the tip of your nose.\n\n7. To exit the posture, bring your chin back toward your chest and your hands to your hips with your thumbs on your sacrum. Engage your lower belly and use your hands to support your lower back as you come up slowly.",
+    "benefits": ""
+  },
+  {
+    "title": "Halasana",
+    "uniqueName": "Halasana",
+    "level": 10,
+    "imageUrl": "http://yoga.infous.xyz/public/12434.png",
+    "description": "Instructions\n\n\nStep 1. From Salamba Sarvangasana, exhale and bend from the hip joints to slowly lower your toes to the floor above and beyond your head. As much as possible, keep your torso perpendicular to the floor and your legs fully extended.\n\nStep 2. With your toes on the floor, lift your top thighs and tailbone toward the ceiling and draw your inner groins deep into the pelvis. Imagine that your torso is hanging from the height of your groins. Continue to draw your chin away from your sternum and soften your throat.\n\nStep. 3. You can continue to press your hands against the back torso, pushing the back up toward the ceiling as you press the backs of the upper arms down, onto your support. Or you can release your hands away from your back and stretch the arms out behind you on the floor, opposite the legs. Clasp the hands and press the arms actively down on the support as you lift the thighs toward the ceiling.\n\nStep 4. Halasana is usually performed after Sarvangasana for anywhere from 1 to 5 minutes. To exit the pose bring your hands onto your back again, lift back into Sarvangasana with an exhalation, then roll down onto your back, or simply roll out of the pose on an exhalation.",
+    "benefits": ""
+  },
+  {
+    "title": "Sarvangasana",
+    "uniqueName": "Sarvangasana",
+    "level": 11,
+    "imageUrl": "http://yoga.infous.xyz/public/47829.png",
+    "description": "Instructions\n\n\nLie on your back with hands by your side.\n\nWith one movement, lift your legs, buttocks and back so that you come up high on your shoulders. Support your back with the hands.\n\nMove your elbows closer towards each other, and move your hands along your back, creeping up towards the shoulder blades. Keep straightening the legs and spine by pressing the elbows down to the floor and hands into the back. Your weight should be supported on your shoulders and upper arms and not on your head and neck.\n\nKeep the legs firm. Lift your heels higher as though you are putting a footprint on the ceiling. Bring the big toes straight over the nose. Now point the toes up. Pay attention to your neck. Do not press the neck into the floor. Instead keep the neck strong with a feeling of tightening the neck muscles slightly. Press your sternum toward the chin. If you feel any strain in the neck, come out of the posture.\n\nKeep breathing deeply and stay in the posture for 30-60 seconds.\n\nTo come out of the posture, lower the knees to forehead. Bring your hands to the floor, palms facing down. Without lifting the head slowly bring your spine down, vertebra by vertebra, completely to the floor. Lower the legs to the floor. Relax for a minimum of 60 seconds.",
+    "benefits": ""
+  },
+  {
+    "title": "Bakasana",
+    "uniqueName": "Bakasana",
+    "level": 12,
+    "imageUrl": "http://yoga.infous.xyz/public/46829.png",
+    "description": "Instructions\n\n\nStep1. Squat down from Tadasana with your inner feet a few inches apart. If it isn't possible to keep your heels on the floor, support them on a thickly folded blanket. Separate your knees wider than your hips and lean the torso forward, between the inner thighs. Stretch your arms forward, then bend your elbows, place your hands on the floor and the backs of the upper arms against the shins.\n\nStep 2. Snuggle your inner thighs against the sides of your torso, and your shins into your armpits, and slide the upper arms down as low onto the shins as possible. Lift up onto the balls of your feet and lean forward even more, taking the weight of your torso onto the backs of the upper arms. In Bakasana you consciously attempt to contract your front torso and round your back completely. To help yourself do this, keep your tailbone as close to your heels as possible.\n\nStep 3. With an exhalation, lean forward even more onto the backs of your upper arms, to the point where the balls of your feet leave the floor. Now your torso and legs are balanced on the backs of your upper arms. As a beginner at this pose, you might want to stop here, perched securely on the bent arms.\n\nStep 4. But if you are ready to go further, squeeze the legs against the arms, press the inner hands firmly to the floor and (with an inhalation) straighten the elbows. Seen from the side the arms are angled slightly forward relative to the floor. The inner knees should be glued to the outer arms, high up near the armpits. Keep the head in a neutral position with your eyes looking at the floor, or lift the head slightly, without compressing the back of the neck, and look forward.\n\nStep 5. Stay in the pose anywhere from 20 seconds to 1 minute. To release, exhale and slowly lower your feet to the floor, back into a squat.",
+    "benefits": ""
+  },
+  {
+    "title": "Mayurasana",
+    "uniqueName": "Mayurasana",
+    "level": 13,
+    "imageUrl": "http://yoga.infous.xyz/public/43280.png",
+    "description": "Instructions\n\n\n1 . Begin by sitting on your heels. Make sure your knees are wide apart.\n\n2 . Place your hands on the floor, and let your fingers point towards your body. Gently bend your elbows and press them towards your abdomen.\n\n3 . You must keep your belly firm. To do this, drop your head on the floor, and work up the strength in your stomach.\n\n4 . Stretch your legs out, such that your knees are straight, and the upper part of your feet are facing the floor.\n\n5 . Your shoulder blades must be firm and pushed into your back. Tighten your buttocks and raise your head. Set your gaze forward.\n\n6 . Shift your body weight forward and lift your legs off the floor. Your body must be lifted with the weight on the hands. It should be parallel to the floor.\n\n7 . Hold the pose for about 10 seconds initially. With practice, you should be able to hold it for up to one minute.\n\n8 . To release, drop your head and feet on the ground. Relax.",
+    "benefits": ""
+  },
+  {
+    "title": "Sirsasana",
+    "uniqueName": "Sirsasana",
+    "level": 14,
+    "imageUrl": "http://yoga.infous.xyz/public/14756.png",
+    "description": "InstructionsStep\n\n\n 1. Use a folded blanket or sticky mat to pad your head and forearms. Kneel on the floor. Lace your fingers together and set the forearms on the floor, elbows at shoulder width. Roll the upper arms slightly outward, but press the inner wrists firmly into the floor. Set the crown of your head on the floor. If you are just beginning to practice this pose, press the bases of your palms together and snuggle the back of your head against the clasped hands. More experienced students can open their hands and place the back of the head into the open palms.\n\nStep 2. Inhale and lift your knees off the floor. Carefully walk your feet closer to your elbows, heels elevated. Actively lift through the top thighs, forming an inverted V. Firm the shoulder blades against your back and lift them toward the tailbone so the front torso stays as long as possible. This should help prevent the weight of the shoulders collapsing onto your neck and head.\n\nStep 3. Exhale and lift your feet away from the floor. Take both feet up at the same time, even if it means bending your knees and hopping lightly off the floor. As the legs (or thighs, if your knees are bent) rise to perpendicular to the floor, firm the tailbone against the back of the pelvis. Turn the upper thighs in slightly, and actively press the heels toward the ceiling (straightening the knees if you bent them to come up). The center of the arches should align over the center of the pelvis, which in turn should align over the crown of the head.\n\nStep 4. Firm the outer arms inward, and soften the fingers. Continue to press the shoulder blades against the back, widen them, and draw them toward the tailbone. Keep the weight evenly balanced on the two forearms. It's also essential that your tailbone continues to lift upward toward the heels. Once the backs of the legs are fully lengthened through the heels, maintain that length and press up through the balls of the big toes so the inner legs are slightly longer than the outer.\n\nStep 5. As a beginning practitioner stay for 10 seconds. Gradually add 5 to 10 seconds onto your stay every day or so until you can comfortably hold the pose for 3 minutes. Then continue for 3 minutes each day for a week or two, until you feel relatively comfortable in the pose. Again gradually add 5 to 10 seconds onto your stay every day or so until you can comfortably hold the pose for 5 minutes. Come down with an exhalation, without losing the lift of the shoulder blades, with both feet touching the floor at the same time.",
+    "benefits": ""
   }
 ]

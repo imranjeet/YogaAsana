@@ -2,26 +2,18 @@ import 'package:YogaAsana/Timer/timer.dart';
 import 'package:YogaAsana/util/constant.dart';
 import 'package:YogaAsana/models/yoga_post.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
 import 'inference.dart';
 
 class YogaDetail extends StatelessWidget {
-  final List<CameraDescription> cameras;
-  final String title;
-  final String model;
-  final String customModel;
+  
   final YogaPost yogaPost;
 
   const YogaDetail({
     Key key,
     this.yogaPost,
-    this.cameras,
-    this.model,
-    this.title,
-    this.customModel,
   }) : super(key: key);
 
   @override
@@ -152,13 +144,9 @@ class YogaDetail extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => PracticeTimer(),
-                            // InferencePage(
-                            //   cameras: cameras,
-                            //   title: title,
-                            //   model: model,
-                            //   customModel: customModel,
-                            // ),
+                            builder: (context) => PracticeTimer(
+                              imgSrc: yogaPost.featuredImageUrl,
+                            ),
                           ),
                         );
                       }),

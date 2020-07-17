@@ -1,13 +1,12 @@
 import 'package:YogaAsana/main_screen.dart';
-import 'package:camera/camera.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../util/auth.dart';
 
 class Register extends StatefulWidget {
-  final List<CameraDescription> cameras;
+  // final List<CameraDescription> cameras;
 
-  const Register({this.cameras});
+  // const Register({this.cameras});
 
   @override
   _RegisterState createState() => _RegisterState();
@@ -293,11 +292,11 @@ class _RegisterState extends State<Register> {
             context,
             MaterialPageRoute(
               builder: (context) => MainScreen(
-                email: user.email,
-                uid: user.uid,
-                displayName: user.displayName,
-                photoUrl: user.photoUrl,
-                cameras: widget.cameras,
+                // email: user.email,
+                // uid: user.uid,
+                // displayName: user.displayName,
+                // photoUrl: user.photoUrl,
+                // cameras: widget.cameras,
               ),
             ),
             ModalRoute.withName('/login'),

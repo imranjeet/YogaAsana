@@ -4,7 +4,6 @@ import 'package:YogaAsana/Class/stores/asanas_store.dart';
 import 'package:YogaAsana/Class/stores/classrooms_store.dart';
 import 'package:YogaAsana/Class/utils/local_notification.dart';
 import 'package:YogaAsana/Profile/screens/profile_edit.dart';
-import 'package:YogaAsana/main.dart';
 import 'package:YogaAsana/util/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
@@ -13,17 +12,17 @@ import '../../util/constant.dart';
 import '../../util/auth.dart';
 
 class Profile extends StatefulWidget {
-  final String email;
-  final String uid;
-  final String displayName;
-  final String photoUrl;
+  // final String email;
+  // final String uid;
+  // final String displayName;
+  // final String photoUrl;
 
-  Profile({
-    this.email,
-    this.uid,
-    this.displayName,
-    this.photoUrl,
-  });
+  // Profile({
+  //   this.email,
+  //   this.uid,
+  //   this.displayName,
+  //   this.photoUrl,
+  // });
 
   @override
   _ProfileState createState() => _ProfileState();
@@ -33,26 +32,26 @@ class _ProfileState extends State<Profile> {
   // bool _progressBarActive = false;
   bool _isCleaning = false;
 
-  bool _editMode = false;
-  TextEditingController _displayNameController;
-  String _titleText;
-  String _displayName;
-  String _photoUrl;
-  File _image;
+  // bool _editMode = false;
+  // TextEditingController _displayNameController;
+  // String _titleText;
+  // String _displayName;
+  // String _photoUrl;
+  // File _image;
 
-  @override
-  void initState() {
-    _displayNameController = TextEditingController(
-      text: widget.displayName,
-    );
+  // @override
+  // void initState() {
+  //   _displayNameController = TextEditingController(
+  //     text: widget.displayName,
+  //   );
 
-    _titleText = 'Profile';
+  //   _titleText = 'Profile';
 
-    _displayName = widget.displayName;
-    _photoUrl = widget.photoUrl;
+  //   _displayName = widget.displayName;
+  //   _photoUrl = widget.photoUrl;
 
-    super.initState();
-  }
+  //   super.initState();
+  // }
 
   void _clearAndRefresh(BuildContext context) async {
     setState(() => _isCleaning = true);
@@ -112,7 +111,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    User user = User();
+    // User user = User();
     var size = MediaQuery.of(context).size;
     return Stack(
       children: <Widget>[
@@ -142,22 +141,24 @@ class _ProfileState extends State<Profile> {
                     Icons.exit_to_app,
                     size: 30,
                   ),
-                  onPressed: () async {
-                    Auth auth = Auth();
-                    await auth.signOut();
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => Login(
-                            // cameras: cameras,
-                            ),
-                      ),
-                    );
-                  },
+                  onPressed: (){},
+                  // onPressed: () async {
+                  //   Auth auth = Auth();
+                  //   await auth.signOut();
+                  //   Navigator.pushReplacement(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //       builder: (context) => Login(
+                  //           // cameras: cameras,
+                  //           ),
+                  //     ),
+                  //   );
+                  // },
                 ),
               ),
               Container(
                 width: double.infinity,
+                height: size.height * .78,
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(28.0, 13.0, 28.0, 20),
                   child: SingleChildScrollView(
@@ -187,13 +188,14 @@ class _ProfileState extends State<Profile> {
                                   tag: 'profile',
                                   child: CircleAvatar(
                                       radius: 60,
-                                      backgroundImage: user.photoUrl == null
-                                          ? AssetImage(
-                                              'assets/images/profile-image.png',
-                                            )
-                                          : NetworkImage(
-                                              user.photoUrl,
-                                            )
+                                      backgroundImage: AssetImage("assets/images/1.png"),
+                                      // backgroundImage: user.photoUrl == null
+                                      //     ? AssetImage(
+                                      //         'assets/images/profile-image.png',
+                                      //       )
+                                      //     : NetworkImage(
+                                      //         user.photoUrl,
+                                      //       )
                                       // : _image == null
                                       //     ? AssetImage(
                                       //         'assets/images/profile-image.png',
@@ -209,7 +211,8 @@ class _ProfileState extends State<Profile> {
                           ),
 
                           Text(
-                            user.displayName,
+                            "YogaAsana",
+                            // user.displayName,
                             style: kHeadingTextStyle,
                           ),
 
@@ -224,23 +227,26 @@ class _ProfileState extends State<Profile> {
                             ),
                             child: ListTile(
                               leading: Icon(
-                                Icons.account_circle,
+                                Icons.info,
                                 color: Colors.black,
                                 size: 30,
                               ),
-                              title: Text("Update your name"),
+                              title: Text("About"),
                               trailing: Icon(
                                 Icons.arrow_forward_ios,
                               ),
-                              onTap: () => Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ProfileEdit(
-                                            email: user.email,
-                                            uid: user.uid,
-                                            displayName: user.displayName,
-                                            photoUrl: user.photoUrl,
-                                          ))),
+                              onTap: () {
+                                _showAboutDialog();
+                              },
+                              // onTap: () => Navigator.push(
+                              //     context,
+                              //     MaterialPageRoute(
+                              //         builder: (context) => ProfileEdit(
+                              //               email: user.email,
+                              //               uid: user.uid,
+                              //               displayName: user.displayName,
+                              //               photoUrl: user.photoUrl,
+                              //             ))),
                             ),
                           ),
 
@@ -305,7 +311,7 @@ class _ProfileState extends State<Profile> {
                             ),
                             child: ListTile(
                               leading: Icon(
-                                Icons.info,
+                                Icons.delete,
                                 color: Colors.black,
                                 size: 30,
                               ),
@@ -608,36 +614,36 @@ class _ProfileState extends State<Profile> {
     );
   }
 
-  Widget _editNameWidget() {
-    return Container(
-      padding: EdgeInsets.only(top: 10),
-      width: 200,
-      child: TextField(
-        autofocus: true,
-        style: TextStyle(
-          fontSize: 25,
-        ),
-        controller: _displayNameController,
-        textAlign: TextAlign.center,
-        decoration: InputDecoration(),
-      ),
-    );
-  }
+  // Widget _editNameWidget() {
+  //   return Container(
+  //     padding: EdgeInsets.only(top: 10),
+  //     width: 200,
+  //     child: TextField(
+  //       autofocus: true,
+  //       style: TextStyle(
+  //         fontSize: 25,
+  //       ),
+  //       controller: _displayNameController,
+  //       textAlign: TextAlign.center,
+  //       decoration: InputDecoration(),
+  //     ),
+  //   );
+  // }
 
-  Future<void> _onEdit(BuildContext context) async {
-    setState(() {
-      _editMode = !_editMode;
-      _titleText = 'Update Profile';
-    });
-  }
+  // Future<void> _onEdit(BuildContext context) async {
+  //   setState(() {
+  //     _editMode = !_editMode;
+  //     _titleText = 'Update Profile';
+  //   });
+  // }
 
-  Future<void> _getPhotoUrl(File photo) async {
-    Auth auth = Auth();
-    if (photo != null) {
-      String photoUrl = await auth.storeProfilePhoto(photo);
-      _photoUrl = photoUrl;
-    }
-  }
+  // Future<void> _getPhotoUrl(File photo) async {
+  //   Auth auth = Auth();
+  //   if (photo != null) {
+  //     String photoUrl = await auth.storeProfilePhoto(photo);
+  //     _photoUrl = photoUrl;
+  //   }
+  // }
 
   _showPrivacyDialog(
     BuildContext context,

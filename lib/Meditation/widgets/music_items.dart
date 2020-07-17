@@ -22,6 +22,7 @@ class _AudioItemState extends State<AudioItem> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return new Scaffold(
       appBar: new AppBar(
         title: new Text("Audio Players"),
@@ -62,7 +63,7 @@ class _AudioItemState extends State<AudioItem> {
   play() async {
     String localUrl = await audioProvider.load();
     audioPlayer.play(localUrl, isLocal: true);
-    
+
     setState(() {
       state = AudioPlayerState.PLAYING;
     });
