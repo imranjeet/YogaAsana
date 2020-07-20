@@ -53,6 +53,8 @@ class ClassroomsScreen extends StatelessWidget {
         ),
         SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               SizedBox(height: size.height * .02),
               Text(
@@ -62,14 +64,13 @@ class ClassroomsScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              SizedBox(height: size.height * .01),
               Text("Create your own yoga classes"),
-              SizedBox(height: size.height * .03),
-              _PredefinedClassesList(),
               SizedBox(height: size.height * .01),
+              _PredefinedClassesList(),
               _ActiveClassesList(),
               SizedBox(height: size.height * .01),
               _CreateClass(),
+              SizedBox(height: size.height * .01),
             ],
           ),
         ),
@@ -81,54 +82,51 @@ class ClassroomsScreen extends StatelessWidget {
 class _PredefinedClassesList extends StatelessWidget {
   Widget _getListItem(
       String title, Color bgColor, String imageAsset, Size size) {
-    return Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: ClipRRect(
-        // borderRadius: BorderRadius.circular(15),
-        child: Container(
-          // height: size.height * .20,
-          // width: sizeW,
-          // padding: EdgeInsets.all(5),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(13),
-            boxShadow: [
-              BoxShadow(
-                offset: Offset(0, 17),
-                blurRadius: 17,
-                spreadRadius: -23,
-                color: kShadowColor,
-              ),
-            ],
-          ),
+    return ClipRRect(
+      // borderRadius: BorderRadius.circular(15),
+      child: Container(
+        // height: size.height * .20,
+        // width: sizeW,
+        // padding: EdgeInsets.all(5),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(13),
+          boxShadow: [
+            BoxShadow(
+              offset: Offset(0, 17),
+              blurRadius: 17,
+              spreadRadius: -23,
+              color: kShadowColor,
+            ),
+          ],
+        ),
 
-          child: Material(
-            color: Colors.transparent,
-            child: Padding(
-              padding: const EdgeInsets.all(1.0),
-              child: Column(
-                children: <Widget>[
-                  Spacer(),
-                  Container(
-                    height: size.height * .15,
-                    width: 100,
-                    child: Image(
-                      image: AssetImage(imageAsset),
-                      // fit: BoxFit.cover,
-                    ),
+        child: Material(
+          color: Colors.transparent,
+          child: Padding(
+            padding: const EdgeInsets.all(1.0),
+            child: Column(
+              children: <Widget>[
+                Spacer(),
+                Container(
+                  height: size.height * .15,
+                  width: 100,
+                  child: Image(
+                    image: AssetImage(imageAsset),
+                    // fit: BoxFit.cover,
                   ),
-                  Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Text(
-                      title,
-                      overflow: TextOverflow.ellipsis,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 20, color: Colors.black54),
-                    ),
+                ),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Text(
+                    title,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 20, color: Colors.black54),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
@@ -140,9 +138,8 @@ class _PredefinedClassesList extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      
       padding: EdgeInsets.symmetric(horizontal: 15),
-      height: MediaQuery.of(context).size.height * 0.24,
+      height: MediaQuery.of(context).size.height * 0.25,
       child: Consumer<ClassroomsStore>(
         builder: (_, store, __) {
           return Observer(

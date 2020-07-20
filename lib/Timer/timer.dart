@@ -1,5 +1,11 @@
+import 'package:YogaAsana/Class/screens/player/video_item.dart';
+import 'package:YogaAsana/Meditation/widgets/music_items.dart';
+import 'package:YogaAsana/models/yoga_post.dart';
+import 'package:YogaAsana/util/constant.dart';
+import 'package:YogaAsana/util/pose_data.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:video_player/video_player.dart';
 import 'package:wave/config.dart';
 import 'package:wave/wave.dart';
 
@@ -8,14 +14,16 @@ import 'ticker.dart';
 
 class PracticeTimer extends StatelessWidget {
   final String imgSrc;
+  final YogaPost yogaPost;
 
-  const PracticeTimer({Key key, this.imgSrc}) : super(key: key);
+  const PracticeTimer({Key key, this.imgSrc, this.yogaPost}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => TimerBloc(ticker: Ticker()),
       child: Timer(
         imgSrc: imgSrc,
+        yogaPost: yogaPost,
       ),
     );
   }
@@ -23,13 +31,14 @@ class PracticeTimer extends StatelessWidget {
 
 class Timer extends StatelessWidget {
   final String imgSrc;
+  final YogaPost yogaPost;
 
   static const TextStyle timerTextStyle = TextStyle(
     fontSize: 60,
     fontWeight: FontWeight.bold,
   );
 
-  const Timer({Key key, this.imgSrc}) : super(key: key);
+  const Timer({Key key, this.imgSrc, this.yogaPost}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -54,32 +63,47 @@ class Timer extends StatelessWidget {
               ),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 40),
+            child: InkWell(
+              child: Icon(Icons.arrow_back_ios),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ),
           SafeArea(
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 10.0, vertical: 10),
-                  child: InkWell(
-                    child: Icon(Icons.arrow_back_ios),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
+                SizedBox(
+                  height: size.height * .03,
+                ),
+                Text(
+                  yogaPost.title,
+                  style: kTopHeadingTextStyle,
+                ),
+                SizedBox(
+                  height: size.height * .02,
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Container(
                     alignment: Alignment.topCenter,
-                    height: size.height * .25,
-                    width: size.width * .95,
-                    child: Image.network(imgSrc),
+                    height: size.height * .43,
+                    width: size.width * 1,
+                    child: VideoItem(
+                      videoPlayerController:
+                          VideoPlayerController.network(yogaPost.gifUrl),
+                      looping: true,
+                    ),
+
+                    // Image.network(imgSrc),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.symmetric(vertical: 100.0,),
+                Container(
+                  height: size.height * .15,
                   child: Center(
                     child: BlocBuilder<TimerBloc, TimerState>(
                       builder: (context, state) {
@@ -104,10 +128,10 @@ class Timer extends StatelessWidget {
                       state.runtimeType != previousState.runtimeType,
                   builder: (context, state) => Actions(),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 30.0),
-                  child: Background(),
+                SizedBox(
+                  height: size.height * .03,
                 ),
+                Background(),
               ],
             ),
           ),

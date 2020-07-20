@@ -7,7 +7,7 @@ import '../../util/constant.dart';
 
 class YogaCard extends StatelessWidget {
   final YogaPost yogaPost;
-  
+
   const YogaCard({
     Key key,
     this.yogaPost,
@@ -39,7 +39,6 @@ class YogaCard extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                       builder: (context) => YogaDetail(
-                            
                             yogaPost: yogaPost,
                           )));
             },

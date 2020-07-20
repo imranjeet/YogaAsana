@@ -11,6 +11,7 @@ class AsanaModel {
     this.level,
     this.description,
     this.benefits,
+    this.videoUrl,
   );
 
   final String uniqueName;
@@ -19,6 +20,7 @@ class AsanaModel {
   final double level;
   final String description;
   final String benefits;
+  final String videoUrl;
 
   factory AsanaModel.fromJson(Map<String, dynamic> json) =>
       _$AsanaModelFromJson(json);
@@ -35,7 +37,8 @@ class AsanaModel {
           imageUrl == other.imageUrl &&
           level == other.level &&
           description == other.description &&
-          benefits == other.benefits;
+          benefits == other.benefits &&
+          videoUrl == other.videoUrl;
 
   @override
   int get hashCode =>
@@ -44,5 +47,6 @@ class AsanaModel {
       imageUrl.hashCode ^
       level.hashCode ^
       description.hashCode ^
-      benefits.hashCode;
+      benefits.hashCode ^
+      videoUrl.hashCode;
 }

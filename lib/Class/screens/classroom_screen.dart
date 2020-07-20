@@ -167,7 +167,7 @@ class _ClassroomScreenContent extends StatelessWidget {
         height: 55,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(5),
-          color: Colors.yellow[300], // TODO: Add glow effect
+          color: Colors.red[200],
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,

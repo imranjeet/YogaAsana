@@ -1,10 +1,12 @@
 import 'package:YogaAsana/Class/assets.dart';
 import 'package:YogaAsana/Class/models/asana_model.dart';
 import 'package:YogaAsana/Class/models/classroom_model.dart';
+import 'package:YogaAsana/Class/screens/player/video_item.dart';
 import 'package:YogaAsana/Class/stores/asanas_store.dart';
 import 'package:YogaAsana/Class/stores/player_store.dart';
 import 'package:YogaAsana/Class/styles.dart';
 import 'package:YogaAsana/Class/utils/log.dart';
+import 'package:YogaAsana/util/pose_data.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -13,6 +15,7 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mobx/mobx.dart';
 import 'package:provider/provider.dart';
+import 'package:video_player/video_player.dart';
 
 import 'player_button.dart';
 import 'player_play_button.dart';
@@ -136,7 +139,6 @@ class _PlayerMainScreenContent extends StatefulWidget {
 class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
   final asanasProgressScrollController = ScrollController();
 
-  // TODO: GlobalKey?
   final Map<String, GlobalKey> asanasKeysInQueueBar = {};
 
   final double playerButtonAspectRatio = 20 / 7.5;
@@ -202,8 +204,8 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
           ),
           child: Opacity(
             opacity: isActive ? 1.0 : 0.7,
-            child: Image.asset(
-              ImageAssets.asanaCoverImage,
+            child: Image.network(
+              asana.imageUrl,
               fit: BoxFit.cover,
               color: Colors.grey,
               colorBlendMode: isActive ? BlendMode.dst : BlendMode.saturation,
@@ -270,7 +272,13 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
           return Column(
             children: [
               Expanded(
-                child: Image.network(asana.imageUrl),
+                child: VideoItem(
+                  videoPlayerController: VideoPlayerController.network(
+                    asana.videoUrl,
+                  ),
+                  looping: true,
+                ),
+                // child: Image.network(asana.imageUrl),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10, bottom: 5),
@@ -338,7 +346,7 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
                       child: Container(
                         width: 60,
                         height: 60,
-                        child: Image.asset(ImageAssets.asanaCoverImage),
+                        child: Image.network(nextAsana.imageUrl),
                       ),
                     ),
                     SizedBox(width: 12),
@@ -386,19 +394,23 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Expanded(
             child: Center(
               child: FittedBox(
                 child: Text(
                   text,
-                  maxLines: 2,
-                  style: GoogleFonts.ptSansCaption(
-                    fontSize: 72,
+                  style: TextStyle(
+                    fontSize: 40,
                     fontWeight: FontWeight.bold,
-                    color: Styles.timerPauseColor,
+                    color: Colors.black,
                   ),
+                  // GoogleFonts.ptSansCaption(
+                  // fontSize: 24,
+                  // fontWeight: FontWeight.bold,
+                  // color: Colors.black,
+                  // ),
                 ),
               ),
             ),
@@ -411,7 +423,7 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
 
   Widget _currentPlayerItem(BuildContext context) {
     if (store.currentQueueItem.phase == PlayerPhase.begin) {
-      return _currentNonAsanaBlock('Prepare');
+      return _currentNonAsanaBlock('Are you ready\n for yoga?');
     }
 
     if (store.currentQueueItem.isChilling) {
@@ -433,7 +445,8 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
     }
 
     if (store.currentQueueItem.isFinished) {
-      return _currentNonAsanaBlock('Congratulations you finished your task 🎉');
+      return _currentNonAsanaBlock(
+          'Congratulations you finished your class 🎉');
     }
 
     return _currentAsana();
@@ -498,7 +511,7 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
               borderRadius: playerButtonBorderRadius,
             ),
             child: Icon(
-              Icons.refresh,
+              Icons.fast_rewind,
               color: Styles.controlsIconColor,
               size: playerButtonIconSize,
             ),
@@ -518,7 +531,7 @@ class _PlayerMainScreenContentState extends State<_PlayerMainScreenContent> {
         child: AspectRatio(
           aspectRatio: playerButtonAspectRatio,
           child: Container(
-            padding: EdgeInsets.fromLTRB(45, 0, 0, 0),
+            padding: EdgeInsets.fromLTRB(40, 0, 0, 0),
             decoration: BoxDecoration(
               border:
                   Border.all(color: Styles.controlsLightGreyColor, width: 6),

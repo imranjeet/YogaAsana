@@ -46,6 +46,7 @@ class Home extends StatelessWidget {
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

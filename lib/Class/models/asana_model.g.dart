@@ -14,6 +14,7 @@ AsanaModel _$AsanaModelFromJson(Map<String, dynamic> json) {
     (json['level'] as num)?.toDouble(),
     json['description'] as String,
     json['benefits'] as String,
+    json['videoUrl'] as String,
   );
 }
 
@@ -25,4 +26,5 @@ Map<String, dynamic> _$AsanaModelToJson(AsanaModel instance) =>
       'level': instance.level,
       'description': instance.description,
       'benefits': instance.benefits,
+      'videoUrl': instance.videoUrl,
     };

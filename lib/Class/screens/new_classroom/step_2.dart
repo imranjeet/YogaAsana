@@ -212,7 +212,7 @@ class _NewClassroomFormState extends State<NewClassroomForm> {
         SizedBox(height: 15),
         SizedBox(
           width: double.infinity,
-          child: Button('Save', onTap: _submitForm),
+          child: Button('Save', onTap: _submitForm,),
         ),
       ],
     );

@@ -7,6 +7,7 @@ import 'package:YogaAsana/Class/screens/new_classroom/new_classroom_screen.dart'
 import 'package:YogaAsana/Class/stores/asanas_store.dart';
 import 'package:YogaAsana/Class/stores/new_classroom_store.dart';
 import 'package:YogaAsana/Class/widgets/duration_picker.dart';
+import 'package:YogaAsana/util/pose_data.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -315,7 +316,8 @@ class _ClassroomRoutineListItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         color: Colors.grey[300],
         image: DecorationImage(
-          image: AssetImage(ImageAssets.asanaCoverImage),
+          image: NetworkImage(asanaInRoutine.imageUrl),
+          // image: AssetImage(ImageAssets.asanaCoverImage),
         ),
       ),
     );
@@ -403,7 +405,8 @@ class _AsanaListItem extends StatelessWidget {
         borderRadius: BorderRadius.circular(4),
         color: Colors.grey[300],
         image: DecorationImage(
-          image: AssetImage(ImageAssets.asanaCoverImage),
+          image: NetworkImage(asana.imageUrl),
+          // image: AssetImage(ImageAssets.asanaCoverImage),
         ),
       ),
     );
@@ -411,7 +414,7 @@ class _AsanaListItem extends StatelessWidget {
 
   Widget _getTrailingWidget(BuildContext context) {
     return IconButton(
-      icon: Icon(Icons.add_circle, color: Colors.green),
+      icon: Icon(Icons.add_circle, color: Colors.black),
       onPressed: onAsanaAdd,
     );
   }

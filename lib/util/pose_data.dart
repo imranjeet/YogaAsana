@@ -1,7 +1,7 @@
 List<String> asanas = [
   'Trikonasana',
   'Vrikshasana',
-  'Virbhadrasana',
+  'Virabhadrasana',
   'Bhujangasana',
   'Sukhasana',
   'Tadasana',
@@ -15,16 +15,18 @@ List<String> asanas = [
   'Sirsasana',
 ];
 
+
+
 // List<String> intermediateAsanas = [
-  // 'Dhanurasana',
-  // 'Padhastasana',
-  // 'Ustrasana',
-  // 'Halasana',
-  // 'Sarvangasana'
+// 'Dhanurasana',
+// 'Padhastasana',
+// 'Ustrasana',
+// 'Halasana',
+// 'Sarvangasana'
 // ];
 
 // List<String> advanceAsanas = [
-  // 'Bakasana',
-  // 'Mayurasana',
-  // 'Sirsasana',
+// 'Bakasana',
+// 'Mayurasana',
+// 'Sirsasana',
 // ];

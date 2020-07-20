@@ -5,10 +5,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 
-import 'inference.dart';
-
 class YogaDetail extends StatelessWidget {
-  
   final YogaPost yogaPost;
 
   const YogaDetail({
@@ -41,7 +38,7 @@ class YogaDetail extends StatelessWidget {
           SafeArea(
               child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
               Padding(
                 padding:
@@ -60,34 +57,19 @@ class YogaDetail extends StatelessWidget {
                   height: size.height * .26,
                   width: size.width * .95,
                   child: CachedNetworkImage(
+                    imageUrl: yogaPost.featuredImageUrl,
                     height: size.height * .25,
                     width: size.width * .95,
-                    imageUrl: yogaPost.gifUrl,
-                    progressIndicatorBuilder: (context, url,
-                            downloadProgress) =>
-                        CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation(Colors.black),
-                            value: downloadProgress.progress),
                     errorWidget: (context, url, error) => Container(
                         child: Column(
                       children: <Widget>[
-                        CachedNetworkImage(
-                          imageUrl: yogaPost.featuredImageUrl,
-                          height: size.height * .25,
-                          width: size.width * .95,
-                          errorWidget: (context, url, error) => Container(
-                              child: Column(
-                            children: <Widget>[
-                              Icon(
-                                Icons.error,
-                                size: 50,
-                              ),
-                              Text(
-                                "check your internet connection!",
-                              ),
-                            ],
-                          )),
-                        )
+                        Icon(
+                          Icons.error,
+                          size: 50,
+                        ),
+                        Text(
+                          "check your internet connection!",
+                        ),
                       ],
                     )),
                   ),
@@ -126,11 +108,11 @@ class YogaDetail extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.only(top: 5.0),
                 child: Center(
                   child: RaisedButton(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 50, vertical: 15),
+                          horizontal: 40, vertical: 13),
                       // color: Colors.red[300],
                       child: Text(
                         "Let's practice",
@@ -146,6 +128,7 @@ class YogaDetail extends StatelessWidget {
                           MaterialPageRoute(
                             builder: (context) => PracticeTimer(
                               imgSrc: yogaPost.featuredImageUrl,
+                              yogaPost: yogaPost,
                             ),
                           ),
                         );

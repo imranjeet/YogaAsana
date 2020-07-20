@@ -1,5 +1,4 @@
 import 'package:YogaAsana/Meditation/screens/meditaion_details_screen.dart';
-import 'package:YogaAsana/widgets/header_widget.dart';
 import 'package:YogaAsana/Meditation/widgets/meditation_track.dart';
 import 'package:flutter/material.dart';
 
@@ -29,6 +28,7 @@ class MeditationScreen extends StatelessWidget {
         ),
         SafeArea(
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               SizedBox(

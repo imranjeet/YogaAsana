@@ -5,7 +5,7 @@ description: A new Flutter project.
 # pub.dev using `pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.0+1
+version: 1.0.2+3
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
@@ -58,6 +58,8 @@ dependencies:
   flutter_markdown: ^0.3.3
   flushbar: ^1.10.2
   audioplayers: ^0.14.0
+  chewie: ^0.9.10
+  video_player: ^0.10.11+2
   cupertino_icons: ^0.1.3
 
 
