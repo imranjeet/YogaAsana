@@ -2,6 +2,12 @@
 
 A new Flutter project.
 
+![1](https://github.com/imranjeet/Exercise-App/assets/48348342/f0a3a2dd-8189-4b2c-8983-3859dfdefe38)
+![1-6 1 inch - Galaxy S10-screen__1](https://github.com/imranjeet/Exercise-App/assets/48348342/3c1f43c8-2ada-43fe-aa5e-1439350075c8)
+![2](https://github.com/imranjeet/Exercise-App/assets/48348342/bfee53c6-a188-4b4f-916c-2454e2e9430f)
+![2-6 1 inch - Galaxy S10-screen__2](https://github.com/imranjeet/Exercise-App/assets/48348342/2387ef1d-00dd-4f86-9efd-229f75b59e8a)
+![3](https://github.com/imranjeet/Exercise-App/assets/48348342/7166e592-5337-4eea-94e4-495d99341e3e)
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
